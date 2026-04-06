@@ -1,0 +1,40 @@
+# Maven
+target/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+out/
+bin/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Env
+.env
+.env.*
+*.local
+
+# Node
+node_modules/
+
+# Temp
+*.swp
+*.swo
+*~
+
+# Coverage
+coverage/
+
+# Test
+*.exec
+
+# JVM
+hs_err_pid*
+replay_pid*
+*.jfr
