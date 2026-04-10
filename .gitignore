@@ -16,8 +16,8 @@ bin/
 logs/
 
 # Env
-.env
-.env.*
+.env*
+!.env.sample
 *.local
 
 # Node
