@@ -1,0 +1,8 @@
+▄▖     ▌     ▘    ▄▖      ▜ ▜        ▗   ▄▖
+▌▌▛▘▀▌▛▌█▌▛▛▌▌▛▘  ▙▖▛▌▛▘▛▌▐ ▐ ▛▛▌█▌▛▌▜▘  ▌ ▛▌▛▘█▌
+▛▌▙▖█▌▙▌▙▖▌▌▌▌▙▖  ▙▖▌▌▌ ▙▌▐▖▐▖▌▌▌▙▖▌▌▐▖  ▙▖▙▌▌ ▙▖
+
+App: ${spring.application.name}
+Version: ${spring.application.version}
+Port: ${server.port}
+Profile: ${spring.profiles.active:default}
