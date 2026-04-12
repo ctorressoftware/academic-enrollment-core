@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260411-1705-seed-dni-document-type-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "dni type already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM document_type WHERE code = 'DNI'"
+      changes:
+        - insert:
+            tableName: document_type
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: code, value: DNI }
+              - column: { name: description, value: Documento Nacional de Identidad }
+
+  - changeSet:
+      id: 20260411-1706-seed-passport-document-type-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "passport type already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM document_type WHERE code = 'PASSPORT'"
+      changes:
+        - insert:
+            tableName: document_type
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: code, value: PASSPORT }
+              - column: { name: description, value: Pasaporte }
+
+  - changeSet:
+      id: 20260411-1707-seed-rnc-document-type-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "rnc type already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM document_type WHERE code = 'RNC'"
+      changes:
+        - insert:
+            tableName: document_type
+            columns:
+              - column: { name: id, valueNumeric: 3 }
+              - column: { name: code, value: RNC }
+              - column: { name: description, value: Registro Nacional de Contribuyente }
