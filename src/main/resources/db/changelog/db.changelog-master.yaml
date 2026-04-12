@@ -1,6 +1,7 @@
 databaseChangeLog:
-  - changeSet:
-      id: 0
-      author: admin
-      changes:
-        -
+  - include:
+      file: "migrations/20260411-1652-create-document_type-table.yaml"
+      relativeToChangelogFile: true
+  - include:
+      file: "migrations/20260411-1705-seed-document_type-catalog.yaml"
+      relativeToChangelogFile: true
