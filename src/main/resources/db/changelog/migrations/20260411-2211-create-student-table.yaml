@@ -1,0 +1,66 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260411-2211-create-student-table
+      author: Carlos Torres
+      preConditions:
+      - onFail: MARK_RAN
+      - onFailMessage: "student table already exists."
+      - onError: HALT
+      - not:
+          - tableExists:
+                tableName: student
+      changes:
+        - createTable:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: student_id_pk
+                    nullable: false
+                    notNullConstraintName: student_id_nnull
+              - column:
+                  name: first_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_first_name_nnull
+              - column:
+                  name: middle_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: last_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_last_name_nnull
+              - column:
+                  name: second_last_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_second_last_name_nnull
+              - column:
+                  name: document_type_id
+                  type: smallint
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_document_type_nnull
+              - column:
+                  name: document_number
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_document_number_nnull
+                    unique: true
+                    uniqueConstraintName: student_document_number_unique
+              - column:
+                  name: sex
+                  type: char(1)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_sex_nnull
