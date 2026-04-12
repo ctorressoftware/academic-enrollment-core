@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260411-1652-create-document_type-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "document_type table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: document_type
+      changes:
+        - createTable:
+            tableName: document_type
+            columns:
+              - column:
+                  name: id
+                  type: smallint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: description
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
