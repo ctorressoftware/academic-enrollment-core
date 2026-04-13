@@ -19,8 +19,6 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     primaryKeyName: student_id_pk
-                    nullable: false
-                    notNullConstraintName: student_id_nnull
               - column:
                   name: first_name
                   type: varchar(100)
@@ -64,3 +62,29 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     notNullConstraintName: student_sex_nnull
+              - column:
+                  name: email
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_email_nnull
+                    unique: true
+                    uniqueConstraintName: student_email_unique
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: true
