@@ -1,10 +1,10 @@
 databaseChangeLog:
   - include:
-      file: "migrations/20260411-1652-create-document_type-table.yaml"
+      file: migrations/20260411-1652-create-document-type-table.yaml
       relativeToChangelogFile: true
   - include:
-      file: "migrations/20260411-1705-seed-document_type-catalog.yaml"
+      file: migrations/20260411-1705-seed-document-type-catalog.yaml
       relativeToChangelogFile: true
   - include:
-      file: "migrations/20260411-2211-create-student-table.yaml"
+      file: migrations/20260411-2211-create-student-table.yaml
       relativeToChangelogFile: true
