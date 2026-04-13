@@ -8,3 +8,6 @@ databaseChangeLog:
   - include:
       file: migrations/20260411-2211-create-student-table.yaml
       relativeToChangelogFile: true
+  - include:
+      file: migrations/20260412-2158-add-fk-student-document-type.yaml
+      relativeToChangelogFile: true
