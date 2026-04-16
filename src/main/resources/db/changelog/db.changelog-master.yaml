@@ -11,3 +11,6 @@ databaseChangeLog:
   - include:
       file: migrations/20260412-2158-add-fk-student-document-type.yaml
       relativeToChangelogFile: true
+  - include:
+      file: migrations/20260415-2322-create-career-table.yaml
+      relativeToChangelogFile: true
