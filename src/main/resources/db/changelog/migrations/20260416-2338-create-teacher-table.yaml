@@ -1,0 +1,21 @@
+databaseChangeLog:
+    - changeSet:
+          id: 20260416-2338-create-teacher-table
+          author: Carlos Torres
+          preConditions:
+              - onFail: MARK_RAN
+              - onFailMessage: "teacher table already exists"
+              - onError: HALT
+              - not:
+                    - tableExists:
+                      tableName: teacher
+          changes:
+              - createTable:
+                    tableName: teacher
+                    columns:
+                        - column:
+                              name: id
+                              type: smallint
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
