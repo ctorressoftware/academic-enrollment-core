@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1838-create-teacher-person-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint teacher_person_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: teacher_person_id_fk
+                foreignKeyTableName: teacher
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: teacher_person_id_fk
+            baseTableName: teacher
+            baseColumnNames: person_id
+            referencedTableName: person
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT

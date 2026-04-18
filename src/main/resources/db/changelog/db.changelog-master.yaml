@@ -42,3 +42,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-1834-create-teacher-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1838-create-teacher-person-id-fk.yaml
+      relativeToChangelogFile: true
