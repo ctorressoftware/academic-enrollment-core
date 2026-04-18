@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 20260411-1705-seed-dni-document-type-catalog
+      id: 20260418-1231-seed-dni-document-type-catalog
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
@@ -15,10 +15,13 @@ databaseChangeLog:
             columns:
               - column: { name: id, valueNumeric: 1 }
               - column: { name: code, value: DNI }
-              - column: { name: description, value: Documento Nacional de Identidad }
+              - column: { name: description, value: National Identity Document }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
 
   - changeSet:
-      id: 20260411-1706-seed-passport-document-type-catalog
+      id: 20260418-1232-seed-passport-document-type-catalog
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
@@ -33,10 +36,12 @@ databaseChangeLog:
             columns:
               - column: { name: id, valueNumeric: 2 }
               - column: { name: code, value: PASSPORT }
-              - column: { name: description, value: Pasaporte }
-
+              - column: { name: description, value: Passport }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
   - changeSet:
-      id: 20260411-1707-seed-rnc-document-type-catalog
+      id: 20260418-1233-seed-rnc-document-type-catalog
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
@@ -51,4 +56,7 @@ databaseChangeLog:
             columns:
               - column: { name: id, valueNumeric: 3 }
               - column: { name: code, value: RNC }
-              - column: { name: description, value: Registro Nacional de Contribuyente }
+              - column: { name: description, value: Taxpayer Identification Number }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
