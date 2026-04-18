@@ -1,4 +1,28 @@
 databaseChangeLog:
-  #- include:
-  #    file: migrations/20260418-1229-create-document-type-table.yaml
-  #    relativeToChangelogFile: true
+  - include:
+      file: migrations/20260418-1229-create-document-type-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1231-seed-document-type-catalog.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1248-create-gender-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1320-seed-gender-catalog.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1426-create-career-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1451-seed-career-catalog.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1534-create-person-table.yaml
+      relativeToChangelogFile: true
