@@ -34,3 +34,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-1807-create-student-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1825-create-foreign-keys-in-student-table.yaml
+      relativeToChangelogFile: true

@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1825-create-student-person-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint student_person_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: student_person_id_fk
+                foreignKeyTableName: student
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: student_person_id_fk
+            baseTableName: student
+            baseColumnNames: person_id
+            referencedTableName: person
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-1826-create-student-career_id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint student_career_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: student_career_id_fk
+                foreignKeyTableName: student
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: student_career_id_fk
+            baseTableName: student
+            baseColumnNames: career_id
+            referencedTableName: career
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
