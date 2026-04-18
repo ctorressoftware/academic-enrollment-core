@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1834-create-teacher-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "teacher table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: teacher
+      changes:
+        - createTable:
+            tableName: teacher
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: teacher_id_pk
+              - column:
+                  name: person_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: teacher_person_id_nnull
+                    unique: true
+                    uniqueConstraintName: teacher_person_id_unique
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: teacher_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: teacher_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: teacher_updated_at_nnull
