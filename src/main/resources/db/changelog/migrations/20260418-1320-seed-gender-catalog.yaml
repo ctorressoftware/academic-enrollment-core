@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1320-seed-male-gender-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "male gender already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM gender WHERE code = 'M'"
+      changes:
+        - insert:
+            tableName: gender
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: code, value: M }
+              - column: { name: description, value: Male }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
+  - changeSet:
+      id: 20260418-1321-seed-female-gender-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "female gender already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM gender WHERE code = 'F'"
+      changes:
+        - insert:
+            tableName: gender
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: code, value: F }
+              - column: { name: description, value: Female }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
