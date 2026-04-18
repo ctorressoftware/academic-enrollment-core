@@ -1,0 +1,62 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1844-create-users-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "users table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: users
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: users_id_pk
+              - column:
+                  name: person_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_person_id_nnull
+                    unique: true
+                    uniqueConstraintName: users_person_id_unique
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_username_nnull
+                    unique: true
+                    uniqueConstraintName: users_username_unique
+              - column:
+                  name: password_hash
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_password_hash_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: users_updated_at_nnull
