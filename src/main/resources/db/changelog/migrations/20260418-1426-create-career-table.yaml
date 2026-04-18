@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1426-create-career-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "career table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: career
+      changes:
+        - createTable:
+            tableName: career
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: career_id_pk
+              - column:
+                  name: code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: career_code_nnull
+                    unique: true
+                    uniqueConstraintName: career_code_unique
+              - column:
+                  name: description
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: career_description_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: career_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: career_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: career_updated_at_nnull
