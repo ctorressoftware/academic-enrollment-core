@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1248-create-gender-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "gender table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: gender
+      changes:
+        - createTable:
+            tableName: gender
+            columns:
+              - column:
+                  name: id
+                  type: smallint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: gender_id_pk
+              - column:
+                  name: code
+                  type: varchar(1)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: gender_code_nnull
+                    unique: true
+                    uniqueConstraintName: gender_code_unique
+                    checkConstraint: "code IN ('M', 'F')"
+              - column:
+                  name: description
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: gender_description_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: gender_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: gender_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: gender_updated_at_nnull
