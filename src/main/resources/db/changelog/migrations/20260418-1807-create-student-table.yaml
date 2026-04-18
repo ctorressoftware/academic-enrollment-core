@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1807-create-student-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "student table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: student
+      changes:
+        - createTable:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: student_id_pk
+              - column:
+                  name: person_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_person_id_nnull
+                    unique: true
+                    uniqueConstraintName: student_person_id_unique
+              - column:
+                  name: career_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_career_id_nnull
+                    unique: true
+                    uniqueConstraintName: student_career_id_unique
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: student_updated_at_nnull
