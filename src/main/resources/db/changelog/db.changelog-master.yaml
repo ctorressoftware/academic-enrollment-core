@@ -26,3 +26,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-1534-create-person-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-1649-create-foreign-keys-in-person-table.yaml
+      relativeToChangelogFile: true

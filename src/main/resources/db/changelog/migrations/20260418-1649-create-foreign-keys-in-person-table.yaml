@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1649-create-person-document-type-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint person_document_type_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: person_document_type_id_fk
+                foreignKeyTableName: person
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: person_document_type_id_fk
+            baseTableName: person
+            baseColumnNames: document_type_id
+            referencedTableName: document_type
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-1650-create-person-gender-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint person_gender_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: person_gender_id_fk
+                foreignKeyTableName: person
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: person_gender_id_fk
+            baseTableName: person
+            baseColumnNames: gender_id
+            referencedTableName: gender
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
