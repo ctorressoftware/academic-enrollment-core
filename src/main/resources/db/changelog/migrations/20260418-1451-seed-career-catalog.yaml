@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-1451-seed-career-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "career with code SWE already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM career WHERE code = 'SWE'"
+      changes:
+        - insert:
+            tableName: career
+            columns:
+              - column: { name: id, value: "d2370c86-b2b0-49f3-b4cc-0b5b079411a8" }
+              - column: { name: code, value: "SWE" }
+              - column: { name: description, value: "Software Engineering" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
