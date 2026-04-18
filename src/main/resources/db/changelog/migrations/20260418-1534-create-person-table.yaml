@@ -1,30 +1,30 @@
 databaseChangeLog:
   - changeSet:
-      id: 20260411-2211-create-student-table
+      id: 20260418-1534-create-person-table
       author: Carlos Torres
       preConditions:
       - onFail: MARK_RAN
-      - onFailMessage: "student table already exists."
+      - onFailMessage: "person table already exists."
       - onError: HALT
       - not:
           - tableExists:
-                tableName: student
+                tableName: person
       changes:
         - createTable:
-            tableName: student
+            tableName: person
             columns:
               - column:
                   name: id
                   type: uuid
                   constraints:
                     primaryKey: true
-                    primaryKeyName: student_id_pk
+                    primaryKeyName: person_id_pk
               - column:
                   name: first_name
                   type: varchar(100)
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_first_name_nnull
+                    notNullConstraintName: person_first_name_nnull
               - column:
                   name: middle_name
                   type: varchar(100)
@@ -35,56 +35,57 @@ databaseChangeLog:
                   type: varchar(100)
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_last_name_nnull
+                    notNullConstraintName: person_last_name_nnull
               - column:
                   name: second_last_name
                   type: varchar(100)
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_second_last_name_nnull
+                    notNullConstraintName: person_second_last_name_nnull
               - column:
                   name: document_type_id
                   type: smallint
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_document_type_nnull
+                    notNullConstraintName: person_document_type_nnull
               - column:
                   name: document_number
                   type: varchar(15)
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_document_number_nnull
+                    notNullConstraintName: person_document_number_nnull
                     unique: true
-                    uniqueConstraintName: student_document_number_unique
+                    uniqueConstraintName: person_document_number_unique
               - column:
-                  name: sex
-                  type: char(1)
+                  name: gender_id
+                  type: smallint
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_sex_nnull
+                    notNullConstraintName: person_gender_id_nnull
               - column:
                   name: email
                   type: varchar(200)
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_email_nnull
+                    notNullConstraintName: person_email_nnull
                     unique: true
-                    uniqueConstraintName: student_email_unique
+                    uniqueConstraintName: person_email_unique
               - column:
                   name: active
                   type: bool
                   defaultValueBoolean: true
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_active_nnull
+                    notNullConstraintName: person_active_nnull
               - column:
                   name: created_at
                   type: timestamptz
                   constraints:
                     nullable: false
-                    notNullConstraintName: student_created_at_nnull
+                    notNullConstraintName: person_created_at_nnull
               - column:
                   name: updated_at
                   type: timestamptz
                   constraints:
-                    nullable: true
+                    nullable: false
+                    notNullConstraintName: person_updated_at_nnull
