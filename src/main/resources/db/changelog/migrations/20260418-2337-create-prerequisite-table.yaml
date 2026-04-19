@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2337-create-prerequisite-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "prerequisite table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: prerequisite
+      changes:
+        - createTable:
+            tableName: prerequisite
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: prerequisite_id_pk
+              - column:
+                  name: subject_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_subject_id_nnull
+              - column:
+                  name: prerequisite_subject_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_prerequisite_subject_id_nnull
+              - column:
+                  name: career_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_career_id_nnull
+              - column:
+                  name: description
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_description_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: prerequisite_updated_at_nnull

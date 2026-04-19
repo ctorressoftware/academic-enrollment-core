@@ -110,3 +110,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2316-add-course-schedule-unique-constraint.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2337-create-prerequisite-table.yaml
+      relativeToChangelogFile: true
