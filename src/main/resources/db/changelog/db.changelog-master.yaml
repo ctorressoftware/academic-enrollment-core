@@ -114,3 +114,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2337-create-prerequisite-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2357-add-prerequisite-foreign-keys.yaml
+      relativeToChangelogFile: true

@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2357-add-subject_id_fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint subject_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: subject_id_fk
+                foreignKeyTableName: prerequisite
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: subject_id_fk
+            baseTableName: prerequisite
+            baseColumnNames: subject_id
+            referencedTableName: subject
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-2358-add-prerequisite-subject-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint prerequisite_subject_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: prerequisite_subject_id_fk
+                foreignKeyTableName: prerequisite
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: prerequisite_subject_id_fk
+            baseTableName: prerequisite
+            baseColumnNames: prerequisite_subject_id
+            referencedTableName: subject
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-2359-add-career_id_fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint career_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: career_id_fk
+                foreignKeyTableName: prerequisite
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: career_id_fk
+            baseTableName: prerequisite
+            baseColumnNames: career_id
+            referencedTableName: career
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
