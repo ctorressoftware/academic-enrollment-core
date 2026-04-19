@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2256-create-course-schedule-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "course-schedule table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: course-schedule
+      changes:
+        - createTable:
+            tableName: course-schedule
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: course-schedule_id_pk
+              - column:
+                  name: course_offering_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_course_offering_id_nnull
+              - column:
+                  name: week_day
+                  type: smallint
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_week_day_nnull
+                    checkConstraint: "week_day BETWEEN 1 AND 7"
+              - column:
+                  name: start_time
+                  type: time
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_start_time_nnull
+              - column:
+                  name: end_time
+                  type: time
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_end_time_nnull
+              - column:
+                  name: location
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_location_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course-schedule_updated_at_nnull

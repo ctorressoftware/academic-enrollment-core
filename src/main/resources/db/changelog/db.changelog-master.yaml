@@ -98,3 +98,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2250-add-course-offering-unique-constraint.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2256-create-course-schedule-table.yaml
+      relativeToChangelogFile: true
