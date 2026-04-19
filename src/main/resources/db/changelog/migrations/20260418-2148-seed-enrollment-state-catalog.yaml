@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2148-seed-enrollment-state-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "enrollment_state with code CREATED already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM enrollment_state WHERE code = 'CREATED'"
+      changes:
+        - insert:
+            tableName: enrollment_state
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: code, value: "CREATED" }
+              - column: { name: description, value: "Created" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
