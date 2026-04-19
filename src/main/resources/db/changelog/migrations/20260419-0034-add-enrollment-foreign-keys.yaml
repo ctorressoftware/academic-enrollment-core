@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260419-0034-add-enrollment-student-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint enrollment_student_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: enrollment-student_id_fk
+                foreignKeyTableName: enrollment
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: enrollment-student_id_fk
+            baseTableName: enrollment
+            baseColumnNames: student_id
+            referencedTableName: student
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260419-0035-add-enrollment-course-offering-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint enrollment_course_offering_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: enrollment_course_offering_id_fk
+                foreignKeyTableName: enrollment
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: enrollment_course_offering_id_fk
+            baseTableName: enrollment
+            baseColumnNames: course_offering_id
+            referencedTableName: course_offering
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260419-0036-add-enrollment-enrollment-state-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint enrollment_enrollment_state_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: enrollment_enrollment_state_id_fk
+                foreignKeyTableName: enrollment
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: enrollment_enrollment_state_id_fk
+            baseTableName: enrollment
+            baseColumnNames: enrollment_state_id
+            referencedTableName: enrollment_state
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT

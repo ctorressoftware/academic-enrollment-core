@@ -126,3 +126,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260419-0024-create-enrollment-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260419-0034-add-enrollment-foreign-keys.yaml
+      relativeToChangelogFile: true
