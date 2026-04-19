@@ -62,3 +62,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2131-seed-subject-catalog.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2135-create-enrollment-state-table.yaml
+      relativeToChangelogFile: true

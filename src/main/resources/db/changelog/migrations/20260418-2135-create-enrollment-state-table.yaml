@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2124-create-enrollment-state-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "enrollment_state table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: enrollment_state
+      changes:
+        - createTable:
+            tableName: enrollment_state
+            columns:
+              - column:
+                  name: id
+                  type: smallint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: enrollment_state_id_pk
+              - column:
+                  name: code
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_state_code_nnull
+                    unique: true
+                    uniqueConstraintName: enrollment_state_code_unique
+              - column:
+                  name: description
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_state_description_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_state_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_state_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_state_updated_at_nnull
