@@ -94,3 +94,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2238-add-course-offering-foreign-keys.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2250-add-course-offering-unique-constraint.yaml
+      relativeToChangelogFile: true

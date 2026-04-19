@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2250-add-course-offering-unique-constraints
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint course_offering_composite_unique already exists"
+        - onError: HALT
+        - not:
+            - uniqueConstraintExists:
+                constraintName: course_offering_composite_unique
+                tableName: course_offering
+      changes:
+        - addUniqueConstraint:
+            constraintName: course_offering_composite_unique
+            tableName: course_offering
+            columnNames: group_code, academic_period_id
