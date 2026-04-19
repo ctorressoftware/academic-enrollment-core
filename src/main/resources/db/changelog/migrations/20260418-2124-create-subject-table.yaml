@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2124-create-subject-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "subject table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: subject
+      changes:
+        - createTable:
+            tableName: subject
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: subject_id_pk
+              - column:
+                  name: code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: subject_code_nnull
+                    unique: true
+                    uniqueConstraintName: subject_code_unique
+              - column:
+                  name: description
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: subject_description_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: subject_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: subject_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: subject_updated_at_nnull
