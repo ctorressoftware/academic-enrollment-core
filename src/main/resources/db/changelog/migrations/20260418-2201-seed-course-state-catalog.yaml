@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2201-seed-course-state-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "course_state with code CREATED already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM course_state WHERE code = 'CREATED'"
+      changes:
+        - insert:
+            tableName: course_state
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: code, value: "CREATED" }
+              - column: { name: description, value: "Created" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
