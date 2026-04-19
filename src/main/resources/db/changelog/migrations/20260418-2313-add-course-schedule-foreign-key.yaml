@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2313-add-course-schedule-foreign-key
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint course_offering_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: course_offering_id_fk
+                foreignKeyTableName: course_schedule
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: course_offering_id_fk
+            baseTableName: course_schedule
+            baseColumnNames: course_offering_id
+            referencedTableName: course_offering
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT

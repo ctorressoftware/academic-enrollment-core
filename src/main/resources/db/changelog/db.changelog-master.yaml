@@ -102,3 +102,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2256-create-course-schedule-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2313-add-course-schedule-foreign-key.yaml
+      relativeToChangelogFile: true
