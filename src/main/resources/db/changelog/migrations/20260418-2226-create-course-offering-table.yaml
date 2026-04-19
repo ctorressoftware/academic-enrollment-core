@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2226-create-course-offering-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "course_offering table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: course_offering
+      changes:
+        - createTable:
+            tableName: course_offering
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: course_offering_id_pk
+              - column:
+                  name: group_code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_group_code_nnull
+              - column:
+                  name: academic_period_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_academic_period_id_nnull
+              - column:
+                  name: subject_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_subject_id_nnull
+              - column:
+                  name: teacher_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_teacher_id_nnull
+              - column:
+                  name: course_state_id
+                  type: smallint
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_course_state_id_nnull
+              - column:
+                  name: quotas
+                  type: smallint
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_quotas_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: course_offering_updated_at_nnull
