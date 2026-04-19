@@ -122,3 +122,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2359-add-prerequisite-unique-constraint.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260419-0024-create-enrollment-table.yaml
+      relativeToChangelogFile: true

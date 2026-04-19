@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260419-0024-create-enrollment-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "enrollment table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: enrollment
+      changes:
+        - createTable:
+            tableName: enrollment
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: enrollment_id_pk
+              - column:
+                  name: student_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_student_id_nnull
+              - column:
+                  name: course_offering_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_course_offering_id_nnull
+              - column:
+                  name: enrollment_state_id
+                  type: smallint
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_enrollment_state_id_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: enrollment_updated_at_nnull
