@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2117-create-users-person-id-fk
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint users-person-id-fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: users-person-id-fk
+                foreignKeyTableName: users
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: users_person_id_fk
+            baseTableName: users
+            baseColumnNames: person_id
+            referencedTableName: person
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT

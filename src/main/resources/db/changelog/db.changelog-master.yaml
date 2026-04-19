@@ -50,3 +50,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-1844-create-users-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2117-create-users-person-id-fk.yaml
+      relativeToChangelogFile: true
