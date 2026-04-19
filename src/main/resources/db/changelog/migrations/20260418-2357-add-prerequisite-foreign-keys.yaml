@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 20260418-2357-add-subject_id_fk
+      id: 20260418-2357-add-subject-id-fk
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
@@ -42,7 +42,7 @@ databaseChangeLog:
             onDelete: RESTRICT
 
   - changeSet:
-      id: 20260418-2359-add-career_id_fk
+      id: 20260418-2359-add-career-id-fk
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
