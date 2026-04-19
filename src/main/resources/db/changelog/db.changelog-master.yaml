@@ -130,3 +130,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260419-0034-add-enrollment-foreign-keys.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260419-0045-add-enrollment-unique-constraint.yaml
+      relativeToChangelogFile: true

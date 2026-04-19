@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260419-0045-add-enrollment-unique-constraint
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint enrollment_composite_unique already exists"
+        - onError: HALT
+        - not:
+            - uniqueConstraintExists:
+                constraintName: enrollment_composite_unique
+                tableName: enrollment
+      changes:
+        - addUniqueConstraint:
+            constraintName: enrollment_composite_unique
+            tableName: enrollment
+            columnNames: student_id, course_offering_id
