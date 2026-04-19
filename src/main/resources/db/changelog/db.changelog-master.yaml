@@ -82,3 +82,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2205-create-academic-period-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2213-create-academic-period-unique-constraint.yaml
+      relativeToChangelogFile: true

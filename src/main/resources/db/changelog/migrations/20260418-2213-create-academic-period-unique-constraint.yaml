@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2213-create-academic-period-unique-constraint
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint academic_period_quarter_year_unique already exists"
+        - onError: HALT
+        - not:
+            - uniqueConstraintExists:
+                constraintName: academic_period_quarter_year_unique
+                tableName: academic_period
+      changes:
+        - addUniqueConstraint:
+            constraintName: academic_period_quarter_year_unique
+            tableName: academic_period
+            columnNames: quarter, year
