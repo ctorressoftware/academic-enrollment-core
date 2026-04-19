@@ -21,7 +21,7 @@ databaseChangeLog:
             onDelete: RESTRICT
 
   - changeSet:
-      id: 20260418-1826-create-student-career_id-fk
+      id: 20260418-1826-create-student-career-id-fk
       author: Carlos Torres
       preConditions:
         - onFail: MARK_RAN
