@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2131-seed-subject-catalog
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "subject with code SWE001 already exists"
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: "SELECT COUNT(*) FROM subject WHERE code = 'SWE001'"
+      changes:
+        - insert:
+            tableName: subject
+            columns:
+              - column: { name: id, value: "e99eb3ac-ec23-47ef-9bf9-af9f4add86fd" }
+              - column: { name: code, value: "SWE001" }
+              - column: { name: description, value: "Fundamentals of Software Engineering I" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_at, valueComputed: now() }
+              - column: { name: updated_at, valueComputed: now() }
