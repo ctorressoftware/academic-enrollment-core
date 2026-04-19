@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2359-add-prerequisite-unique-constraint
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint prerequisite_composite_unique already exists"
+        - onError: HALT
+        - not:
+            - uniqueConstraintExists:
+                constraintName: prerequisite_composite_unique
+                tableName: prerequisite
+      changes:
+        - addUniqueConstraint:
+            constraintName: prerequisite_composite_unique
+            tableName: prerequisite
+            columnNames: subject_id, prerequisite_subject_id, career_id

@@ -118,3 +118,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2357-add-prerequisite-foreign-keys.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2359-add-prerequisite-unique-constraint.yaml
+      relativeToChangelogFile: true
