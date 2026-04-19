@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2316-add-course-schedule-unique-constraint
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint course_schedule_composite_unique already exists"
+        - onError: HALT
+        - not:
+            - uniqueConstraintExists:
+                constraintName: course_schedule_composite_unique
+                tableName: course_schedule
+      changes:
+        - addUniqueConstraint:
+            constraintName: course_schedule_composite_unique
+            tableName: course_schedule
+            columnNames: course_offering_id, week_day, start_time, end_time

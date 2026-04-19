@@ -106,3 +106,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2313-add-course-schedule-foreign-key.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2316-add-course-schedule-unique-constraint.yaml
+      relativeToChangelogFile: true
