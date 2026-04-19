@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2205-create-academic-period-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "academic_period table already exists"
+        - onError: HALT
+        - not:
+            - tableExists:
+              tableName: academic_period
+      changes:
+        - createTable:
+            tableName: academic_period
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: academic_period_id_pk
+              - column:
+                  name: quarter
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: academic_period_quarter_nnull
+              - column:
+                  name: year
+                  type: smallint
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: academic_period_year_nnull
+              - column:
+                  name: active
+                  type: bool
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: academic_period_active_nnull
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: academic_period_created_at_nnull
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+                    notNullConstraintName: academic_period_updated_at_nnull
