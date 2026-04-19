@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260418-2238-add-academic-period-id-fk-to-course-offering-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint academic_period_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: academic_period_id_fk
+                foreignKeyTableName: course_offering
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: academic_period_id_fk
+            baseTableName: course_offering
+            baseColumnNames: academic_period_id
+            referencedTableName: academic_period
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-2239-add-subject-id-fk-to-course-offering-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint subject_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: subject_id_fk
+                foreignKeyTableName: course_offering
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: subject_id_fk
+            baseTableName: course_offering
+            baseColumnNames: subject_id
+            referencedTableName: subject
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-2240-add-teacher-id-fk-to-course-offering-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint teacher_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: teacher_id_fk
+                foreignKeyTableName: course_offering
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: teacher_id_fk
+            baseTableName: course_offering
+            baseColumnNames: teacher_id
+            referencedTableName: teacher
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+  - changeSet:
+      id: 20260418-2241-add-course-state-id-fk-to-course-offering-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onFailMessage: "constraint course_state_id_fk already exists"
+        - onError: HALT
+        - not:
+            - foreignKeyConstraintExists:
+                foreignKeyConstraintName: course_state_id_fk
+                foreignKeyTableName: course_offering
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: course_state_id_fk
+            baseTableName: course_offering
+            baseColumnNames: course_state_id
+            referencedTableName: course_state
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT

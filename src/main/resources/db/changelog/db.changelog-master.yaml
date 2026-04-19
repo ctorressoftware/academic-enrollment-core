@@ -90,3 +90,7 @@ databaseChangeLog:
   - include:
       file: migrations/20260418-2226-create-course-offering-table.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260418-2238-add-course-offering-foreign-keys.yaml
+      relativeToChangelogFile: true
