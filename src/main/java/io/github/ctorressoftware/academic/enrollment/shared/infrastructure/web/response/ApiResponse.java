@@ -2,30 +2,34 @@ package io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.
 
 public class ApiResponse<T> {
     private final boolean success;
-    private final String errorCode;
-    private final String errorMessage;
+    private final String code;
+    private final String message;
+    private final Object errors;
     private final T data;
 
-    private ApiResponse(boolean success, String errorCode, String errorMessage, T data) {
+    private ApiResponse(boolean success, String code, String message, Object errors, T data) {
         this.success = success;
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
+        this.code = code;
+        this.message = message;
+        this.errors = errors;
         this.data = data;
     }
 
     public static <T> ApiResponse<T> success(T data) {
         return new ApiResponse<>(
                 true,
-                null,
+                "OK",
+                "Success",
                 null,
                 data);
     }
 
-    public static <T> ApiResponse<T> error(String errorCode, String errorMessage) {
+    public static <T> ApiResponse<T> error(String code, String message, Object errors) {
         return new ApiResponse<>(
                 false,
-                errorCode,
-                errorMessage,
+                code,
+                message,
+                errors,
                 null);
     }
 
@@ -33,12 +37,16 @@ public class ApiResponse<T> {
         return success;
     }
 
-    public String getErrorCode() {
-        return errorCode;
+    public String getCode() {
+        return code;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
+    }
+
+    public Object getErrors() {
+        return errors;
     }
 
     public T getData() {
