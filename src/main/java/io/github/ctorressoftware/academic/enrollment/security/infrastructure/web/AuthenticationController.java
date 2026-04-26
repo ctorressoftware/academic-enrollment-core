@@ -2,7 +2,7 @@ package io.github.ctorressoftware.academic.enrollment.security.infrastructure.we
 
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.request.RegisterRequest;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response.RegisterResponse;
-import io.github.ctorressoftware.academic.enrollment.shared.infraestructure.web.response.ApiResponse;
+import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

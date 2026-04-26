@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.shared.infraestructure.web.response;
+package io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response;
 
 public class ApiResponse<T> {
     private final boolean success;
