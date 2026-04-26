@@ -1,6 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.config;
 
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.security.CustomUserDetailsService;
+import io.github.ctorressoftware.academic.enrollment.security.infrastructure.security.JwtAuthFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.time.Clock;
 
@@ -25,7 +27,7 @@ public class SecurityConfig {
 
     @Bean
     @Profile("local")
-    SecurityFilterChain localFilterChain(HttpSecurity http) {
+    SecurityFilterChain localFilterChain(HttpSecurity http, JwtAuthFilter jwtFilter) {
         return http
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
@@ -33,12 +35,17 @@ public class SecurityConfig {
                 .sessionManagement(sm ->
                         sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/swagger-ui.html",
+                        .requestMatchers(
+                                "/swagger-ui.html",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
-                                "/v3/api-docs.yaml")
+                                "/v3/api-docs.yaml"
+                        )
                         .permitAll()
-                        .anyRequest().permitAll())
+                        .requestMatchers("/auth/register")
+                        .permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
