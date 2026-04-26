@@ -4,7 +4,7 @@ public record PasswordHash(String value) {
 
     public PasswordHash {
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("PasswordHash hash must not be blank");
+            throw new IllegalArgumentException("PasswordHash must not be blank");
         }
 
         if (value.chars().anyMatch(Character::isWhitespace)) {
