@@ -3,6 +3,7 @@ package io.github.ctorressoftware.academic.enrollment.security.infrastructure.we
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.request.RegisterRequest;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response.RegisterResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<ApiResponse<RegisterResponse>> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<ApiResponse<RegisterResponse>> register(@RequestBody @Valid RegisterRequest request) {
         return ResponseEntity.ok(ApiResponse.success(new RegisterResponse("user", "pass")));
     }
 }
