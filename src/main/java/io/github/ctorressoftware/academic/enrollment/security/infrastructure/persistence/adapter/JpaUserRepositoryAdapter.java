@@ -37,9 +37,8 @@ public class JpaUserRepositoryAdapter implements UserRepository {
     }
 
     private User toDomain(UserEntity entity) {
-        UUID temporaryPersonId = UUID.randomUUID();
         return User.create(
-                temporaryPersonId,
+                entity.getPersonId(),
                 new Username(entity.getUsername()),
                 new PasswordHash(entity.getPasswordHash())
         );
