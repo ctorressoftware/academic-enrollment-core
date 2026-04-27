@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record RegisterRequest(
+        @NotBlank(message = "PersonId cannot be blank")
+        String personId,
+
         @NotBlank(message = "Username cannot be blank")
         @Size(min = 3, max = 15, message = "Username must be between 3 and 15 characters")
         String username,
