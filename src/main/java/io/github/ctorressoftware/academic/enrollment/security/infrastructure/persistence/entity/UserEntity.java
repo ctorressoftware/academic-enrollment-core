@@ -3,7 +3,6 @@ package io.github.ctorressoftware.academic.enrollment.security.infrastructure.pe
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import org.hibernate.annotations.UuidGenerator;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -11,7 +10,7 @@ import java.util.UUID;
 @Entity(name = "users")
 public class UserEntity {
     @Id
-    @UuidGenerator
+    @Column(name = "id", nullable = false)
     private UUID id;
 
     @Column(name = "person_id", unique = true, nullable = false)
