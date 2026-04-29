@@ -1,9 +1,14 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.web;
 
+import io.github.ctorressoftware.academic.enrollment.security.application.command.LoginCommand;
 import io.github.ctorressoftware.academic.enrollment.security.application.command.RegisterUserCommand;
+import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.result.RegisterUserResult;
+import io.github.ctorressoftware.academic.enrollment.security.application.usecase.LoginUseCase;
 import io.github.ctorressoftware.academic.enrollment.security.application.usecase.RegisterUserUseCase;
+import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.request.LoginRequest;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.request.RegisterRequest;
+import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response.LoginResponse;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response.RegisterResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
 import jakarta.validation.Valid;
@@ -20,9 +25,14 @@ import java.util.UUID;
 public class AuthenticationController {
 
     private final RegisterUserUseCase registerUserUseCase;
+    private final LoginUseCase loginUseCase;
 
-    public AuthenticationController(RegisterUserUseCase registerUserUseCase) {
+    public AuthenticationController(
+            RegisterUserUseCase registerUserUseCase,
+            LoginUseCase loginUseCase) {
         this.registerUserUseCase = registerUserUseCase;
+        this.loginUseCase = loginUseCase;
+
     }
 
     @PostMapping("/register")
@@ -38,5 +48,19 @@ public class AuthenticationController {
         RegisterUserResult result = registerUserUseCase.register(command);
 
         return ResponseEntity.ok(ApiResponse.success(RegisterResponse.from(result)));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse<LoginResponse>> login(
+            @RequestBody @Valid LoginRequest request) {
+
+        LoginCommand command = new LoginCommand(
+                request.username(),
+                request.password()
+        );
+
+        LoginResult result = loginUseCase.login(command);
+
+        return ResponseEntity.ok(ApiResponse.success(LoginResponse.from(result)));
     }
 }
