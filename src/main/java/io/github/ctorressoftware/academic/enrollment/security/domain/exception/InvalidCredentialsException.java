@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.security.application.exception;
+package io.github.ctorressoftware.academic.enrollment.security.domain.exception;
 
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
 
