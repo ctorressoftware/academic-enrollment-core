@@ -42,7 +42,10 @@ public class SecurityConfig {
                                 "/v3/api-docs.yaml"
                         )
                         .permitAll()
-                        .requestMatchers("/auth/register")
+                        .requestMatchers(
+                                "/auth/register",
+                                "/auth/login"
+                        )
                         .permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
