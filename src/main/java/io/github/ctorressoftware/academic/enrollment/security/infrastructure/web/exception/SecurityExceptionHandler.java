@@ -1,5 +1,6 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.exception;
 
+import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidCredentialsException;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.UserAlreadyExistsException;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
 import org.slf4j.Logger;
@@ -21,6 +22,18 @@ public class SecurityExceptionHandler {
                 .body(ApiResponse.error(
                         "USERNAME_ALREADY_EXISTS",
                         "Username already exists",
+                        null
+                ));
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleUserNotFoundException(InvalidCredentialsException e) {
+        log.warn(e.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body(ApiResponse.error(
+                        "USER_NOT_FOUND",
+                        "User not found",
                         null
                 ));
     }
