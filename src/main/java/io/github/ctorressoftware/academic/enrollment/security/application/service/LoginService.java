@@ -5,9 +5,7 @@ import io.github.ctorressoftware.academic.enrollment.security.domain.exception.I
 import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.usecase.LoginUseCase;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.PasswordHasher;
 import io.github.ctorressoftware.academic.enrollment.security.domain.ports.TokenIssuer;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,20 +15,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginService implements LoginUseCase {
-    private final UserRepository repository;
     private final AuthenticationManager authManager;
     private final TokenIssuer tokenIssuer;
-    private final PasswordHasher passwordHasher;
 
     public LoginService(
-            UserRepository repository,
             AuthenticationManager authManager,
-            TokenIssuer tokenIssuer,
-            PasswordHasher passwordHasher) {
-        this.repository = repository;
+            TokenIssuer tokenIssuer) {
         this.authManager = authManager;
         this.tokenIssuer = tokenIssuer;
-        this.passwordHasher = passwordHasher;
     }
 
     @Override
