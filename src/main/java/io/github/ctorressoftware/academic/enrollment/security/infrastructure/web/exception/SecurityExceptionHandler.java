@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -27,13 +28,25 @@ public class SecurityExceptionHandler {
     }
 
     @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<ApiResponse<Void>> handleUserNotFoundException(InvalidCredentialsException e) {
+    public ResponseEntity<ApiResponse<Void>> handleInvalidCredentialsException(InvalidCredentialsException e) {
         log.warn(e.getMessage());
         return ResponseEntity
                 .status(HttpStatus.FORBIDDEN)
                 .body(ApiResponse.error(
-                        "USER_NOT_FOUND",
-                        "User not found",
+                        "INVALID_CREDENTIALS",
+                        "Invalid credentials",
+                        null
+                ));
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAuthenticationException(AuthenticationException e) {
+        log.error("Authentication failed: {}", e.getMessage(), e);
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(
+                        "AUTHENTICATION_ERROR",
+                        "Authentication failed",
                         null
                 ));
     }
