@@ -8,20 +8,35 @@ import java.util.Collection;
 import java.util.List;
 
 public class AuthUser implements UserDetails {
+    private final String username;
+    private final String password;
+    private final List<GrantedAuthority> roles;
+    private final boolean active;
+
+    public AuthUser(
+            String username,
+            String password,
+            List<GrantedAuthority> roles,
+            boolean active) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+        this.active = active;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     @Override
     public @Nullable String getPassword() {
-        return "";
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return "";
+        return username;
     }
 
     @Override
@@ -41,6 +56,6 @@ public class AuthUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
+        return active;
     }
 }
