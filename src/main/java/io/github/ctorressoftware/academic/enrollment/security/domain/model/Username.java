@@ -21,7 +21,7 @@ public record Username(String value) {
         }
 
         if (!USERNAME_PATTERN.matcher(value).matches()) {
-            throw new IllegalArgumentException("invalid username format");
+            throw new IllegalArgumentException("Invalid username format");
         }
     }
 }
