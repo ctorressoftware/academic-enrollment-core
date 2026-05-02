@@ -6,6 +6,7 @@ import io.github.ctorressoftware.academic.enrollment.account.application.service
 import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.CreateAccountRequest;
 import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response.CreateAccountResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class AccountController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ApiResponse<CreateAccountResponse>> create(@RequestBody CreateAccountRequest request) {
+    public ResponseEntity<ApiResponse<CreateAccountResponse>> create(@RequestBody @Valid CreateAccountRequest request) {
 
         CreateAccountCommand command = new CreateAccountCommand(
                 request.firstName(),
