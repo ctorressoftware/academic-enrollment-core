@@ -4,6 +4,11 @@ import io.github.ctorressoftware.academic.enrollment.person.application.port.in.
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonResult;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonUseCase;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.out.PersonRepository;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
+
+import static io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType.*;
+
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.Person;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +22,17 @@ public class CreatePersonService implements CreatePersonUseCase {
 
     @Override
     public CreatePersonResult create(CreatePersonCommand command) {
-        return null; // TODO
+
+        Person person = repository.save(Person.create(
+                command.firstName(),
+                command.middleName(),
+                command.lastName(),
+                command.secondLastName(),
+                command.document(),
+                command.genderId(),
+                command.email()
+        ));
+
+        return new CreatePersonResult(person);
     }
 }
