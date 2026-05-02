@@ -1,5 +1,6 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -16,14 +17,14 @@ public record CreateAccountRequest(
         @NotBlank(message = "SecondLastName cannot be blank")
         String secondLastName,
 
-        @Size(min = 1, message = "DocumentTypeId only can be a value higher than zero")
-        short documentTypeId,
+        @Min(value = 1, message = "DocumentTypeId only can be a value higher than zero")
+        Short documentTypeId,
 
         @NotBlank(message = "DocumentNumber cannot be blank")
         String documentNumber,
 
-        @Size(min = 1, message = "GenderId only can be a value higher than zero")
-        short genderId,
+        @Min(value = 1, message = "GenderId only can be a value higher than zero")
+        Short genderId,
 
         @NotBlank(message = "Email cannot be blank")
         String email,
