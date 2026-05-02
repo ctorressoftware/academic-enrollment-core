@@ -9,6 +9,6 @@ public record CreatePersonCommand(
         String lastName,
         String secondLastName,
         Document document,
-        int genderId,
+        short genderId,
         Email email
 ) {}
