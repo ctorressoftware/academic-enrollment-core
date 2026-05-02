@@ -1,18 +1,18 @@
 package io.github.ctorressoftware.academic.enrollment.person.domain.model;
 
 public enum DocumentType {
-    DNI(1, "DNI"),
-    PASSPORT(2, "PASSPORT");
+    DNI((short) 1, "DNI"),
+    PASSPORT((short) 2, "PASSPORT");
 
-    private final int id;
+    private final short id;
     private final String code;
 
-    DocumentType(int id, String code) {
+    DocumentType(short id, String code) {
         this.id = id;
         this.code = code;
     }
 
-    public int getId() {
+    public short getId() {
         return id;
     }
 

@@ -12,7 +12,7 @@ public class Person {
     private final String lastName;
     private final String secondLastName;
     private final Document document;
-    private final int genderId;
+    private final short genderId;
     private final Email email; //
     private final boolean active;
     private final Instant createdAt;
@@ -25,7 +25,7 @@ public class Person {
             String lastName,
             String secondLastName,
             Document document,
-            int genderId,
+            short genderId,
             Email email,
             boolean active,
             Instant createdAt,
@@ -49,7 +49,7 @@ public class Person {
             String lastName,
             String secondLastName,
             Document document,
-            int genderId,
+            short genderId,
             Email email
     ) {
         Instant now = Instant.now();
@@ -75,7 +75,7 @@ public class Person {
             String lastName,
             String secondLastName,
             Document document,
-            int genderId,
+            short genderId,
             Email email,
             boolean active,
             Instant createdAt,
@@ -142,7 +142,7 @@ public class Person {
         return document;
     }
 
-    public int getGenderId() {
+    public short getGenderId() {
         return genderId;
     }
 
