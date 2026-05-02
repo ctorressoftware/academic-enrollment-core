@@ -44,7 +44,8 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers(
                                 "/auth/register",
-                                "/auth/login"
+                                "/auth/login",
+                                "/account/create"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
