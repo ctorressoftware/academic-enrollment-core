@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.account.application.command;
+package io.github.ctorressoftware.academic.enrollment.account.application.port.in;
 
 public record CreateAccountCommand(
         String firstName,
