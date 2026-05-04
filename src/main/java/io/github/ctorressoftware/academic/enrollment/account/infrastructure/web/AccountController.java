@@ -1,7 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web;
 
-import io.github.ctorressoftware.academic.enrollment.account.application.command.CreateAccountCommand;
-import io.github.ctorressoftware.academic.enrollment.account.application.result.CreateAccountResult;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountCommand;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountResult;
 import io.github.ctorressoftware.academic.enrollment.account.application.service.CreateAccountService;
 import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.CreateAccountRequest;
 import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response.CreateAccountResponse;
