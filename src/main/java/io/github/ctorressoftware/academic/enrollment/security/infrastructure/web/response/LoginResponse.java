@@ -1,7 +1,6 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response;
 
-import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
-import io.github.ctorressoftware.academic.enrollment.security.application.result.RegisterUserResult;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginResult;
 
 public record LoginResponse(
         String username,

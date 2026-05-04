@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.web;
 
-import io.github.ctorressoftware.academic.enrollment.security.application.command.LoginCommand;
-import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
-import io.github.ctorressoftware.academic.enrollment.security.application.usecase.LoginUseCase;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginCommand;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginResult;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginUseCase;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.request.LoginRequest;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.response.LoginResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
