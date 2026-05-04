@@ -19,4 +19,8 @@ public enum DocumentType {
     public String getCode() {
         return code;
     }
+
+    public static DocumentType getById(short id) {
+        return id == DNI.getId() ? DNI : PASSPORT;
+    }
 }
