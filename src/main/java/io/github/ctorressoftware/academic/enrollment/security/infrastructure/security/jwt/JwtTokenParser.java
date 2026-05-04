@@ -7,9 +7,11 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 
+@Component
 public class JwtTokenParser implements TokenParser {
 
     private final SecretKey secretKey;
