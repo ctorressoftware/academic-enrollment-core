@@ -9,6 +9,7 @@ import io.github.ctorressoftware.academic.enrollment.security.infrastructure.per
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class JpaUserRepositoryAdapter implements UserRepository {
@@ -27,6 +28,12 @@ public class JpaUserRepositoryAdapter implements UserRepository {
     @Override
     public Optional<User> findByUsername(Username username) {
         return repository.findByUsername(username.value())
+                .map(this::toDomain);
+    }
+
+    @Override
+    public Optional<User> findById(UUID userId) {
+        return repository.findById(userId)
                 .map(this::toDomain);
     }
 
