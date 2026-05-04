@@ -43,6 +43,25 @@ public class User {
         );
     }
 
+    public static User restore(
+            UUID id,
+            UUID personId,
+            Username username,
+            PasswordHash passwordHash,
+            boolean active,
+            Instant createdAt,
+            Instant updatedAt) {
+        return new User(
+                id,
+                personId,
+                username,
+                passwordHash,
+                active,
+                createdAt,
+                updatedAt
+        );
+    }
+
     public UUID getId() {
         return id;
     }
