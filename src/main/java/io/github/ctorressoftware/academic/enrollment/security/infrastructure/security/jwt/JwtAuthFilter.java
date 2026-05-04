@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -25,10 +26,15 @@ import java.io.IOException;
 public class JwtAuthFilter extends OncePerRequestFilter {
     private final TokenParser parser;
     private final UserDetailsLoader uds;
+    private final AuthenticationEntryPoint authenticationEntryPoint;
 
-    public JwtAuthFilter(TokenParser parser, UserDetailsLoader uds) {
+    public JwtAuthFilter(
+            TokenParser parser,
+            UserDetailsLoader uds,
+            AuthenticationEntryPoint authenticationEntryPoint) {
         this.parser = parser;
         this.uds = uds;
+        this.authenticationEntryPoint = authenticationEntryPoint;
     }
 
     @Override
@@ -56,9 +62,24 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(auth);
 
             } catch (ExpiredJwtException e) {
-                throw new AuthTokenExpiredException(e);
+                SecurityContextHolder.clearContext();
+
+                authenticationEntryPoint.commence(
+                        request,
+                        response,
+                        new AuthTokenExpiredException(e)
+                );
+                return;
+
             } catch (JwtException e) {
-                throw new InvalidAuthTokenException(e);
+                SecurityContextHolder.clearContext();
+
+                authenticationEntryPoint.commence(
+                        request,
+                        response,
+                        new InvalidAuthTokenException(e)
+                );
+                return;
             }
         }
 
