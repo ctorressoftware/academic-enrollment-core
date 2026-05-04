@@ -9,7 +9,6 @@ import io.github.ctorressoftware.academic.enrollment.security.infrastructure.per
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Component
 public class JpaUserRepositoryAdapter implements UserRepository {
@@ -38,10 +37,14 @@ public class JpaUserRepositoryAdapter implements UserRepository {
     }
 
     private User toDomain(UserEntity entity) {
-        return User.create(
+        return User.restore(
+                entity.getId(),
                 entity.getPersonId(),
                 new Username(entity.getUsername()),
-                new PasswordHash(entity.getPasswordHash())
+                new PasswordHash(entity.getPasswordHash()),
+                entity.isActive(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt()
         );
     }
 
