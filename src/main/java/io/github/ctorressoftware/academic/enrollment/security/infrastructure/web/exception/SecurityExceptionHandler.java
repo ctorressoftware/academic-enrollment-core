@@ -1,5 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.web.exception;
 
+import io.github.ctorressoftware.academic.enrollment.security.domain.exception.AuthTokenExpiredException;
+import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidAuthTokenException;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidCredentialsException;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.UserAlreadyExistsException;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
@@ -47,6 +49,30 @@ public class SecurityExceptionHandler {
                 .body(ApiResponse.error(
                         "AUTHENTICATION_ERROR",
                         "Authentication failed",
+                        null
+                ));
+    }
+
+    @ExceptionHandler(AuthTokenExpiredException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAuthTokenExpiredException(AuthTokenExpiredException e) {
+        log.warn("Authentication token has expired: {}", e.getClass().getSimpleName());
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(
+                        "AUTH_TOKEN_EXPIRED",
+                        e.getMessage(),
+                        null
+                ));
+    }
+
+    @ExceptionHandler(InvalidAuthTokenException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInvalidAuthTokenException(InvalidAuthTokenException e) {
+        log.warn("Invalid authentication token to validate user: {}", e.getClass().getSimpleName());
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(
+                        "INVALID_TOKEN",
+                        e.getMessage(),
                         null
                 ));
     }
