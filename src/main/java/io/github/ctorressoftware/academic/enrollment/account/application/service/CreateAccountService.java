@@ -1,48 +1,51 @@
 package io.github.ctorressoftware.academic.enrollment.account.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.account.application.command.CreateAccountCommand;
-import io.github.ctorressoftware.academic.enrollment.account.application.result.CreateAccountResult;
-import io.github.ctorressoftware.academic.enrollment.account.application.usecase.CreateAccountUseCase;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountCommand;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountResult;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountUseCase;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonCommand;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonResult;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonUseCase;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
-
-import static io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType.*;
-
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
 import io.github.ctorressoftware.academic.enrollment.security.application.command.RegisterUserCommand;
 import io.github.ctorressoftware.academic.enrollment.security.application.result.RegisterUserResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.usecase.RegisterUserUseCase;
+import io.github.ctorressoftware.academic.enrollment.shared.application.port.out.UnitOfWork;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CreateAccountService implements CreateAccountUseCase {
-
     private final CreatePersonUseCase createPersonUseCase;
     private final RegisterUserUseCase registerUserUseCase;
+    private final UnitOfWork unitOfWork;
 
     public CreateAccountService(
             CreatePersonUseCase createPersonUseCase,
-            RegisterUserUseCase registerUserUseCase) {
+            RegisterUserUseCase registerUserUseCase,
+            UnitOfWork unitOfWork) {
         this.createPersonUseCase = createPersonUseCase;
         this.registerUserUseCase = registerUserUseCase;
+        this.unitOfWork = unitOfWork;
     }
 
     @Override
     @Transactional
     public CreateAccountResult create(CreateAccountCommand command) {
 
+        Document document = new Document(
+                DocumentType.getById(command.documentTypeId()),
+                command.documentNumber()
+        );
+
         CreatePersonCommand personCommand = new CreatePersonCommand(
                 command.firstName(),
                 command.middleName(),
                 command.lastName(),
                 command.secondLastName(),
-                new Document(
-                        DNI.getId() == command.documentTypeId() ? DNI : PASSPORT,
-                        command.documentNumber()
-                ),
+                document,
                 command.genderId(),
                 new Email(command.email())
         );
@@ -50,6 +53,7 @@ public class CreateAccountService implements CreateAccountUseCase {
         CreatePersonResult createPersonResult =
                 createPersonUseCase.create(personCommand);
 
+        unitOfWork.flush();
         RegisterUserCommand registerCommand = new RegisterUserCommand(
                 createPersonResult.person().getId(),
                 command.username(),
