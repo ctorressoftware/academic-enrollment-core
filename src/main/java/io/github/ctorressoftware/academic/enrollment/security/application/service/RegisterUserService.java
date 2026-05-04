@@ -1,6 +1,8 @@
-package io.github.ctorressoftware.academic.enrollment.security.application.port.in.register;
+package io.github.ctorressoftware.academic.enrollment.security.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.security.application.command.RegisterUserCommand;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserCommand;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserResult;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserUseCase;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.UserAlreadyExistsException;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.PasswordHash;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.User;

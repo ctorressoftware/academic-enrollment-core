@@ -9,7 +9,7 @@ import io.github.ctorressoftware.academic.enrollment.person.application.port.in.
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
-import io.github.ctorressoftware.academic.enrollment.security.application.command.RegisterUserCommand;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserCommand;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserUseCase;
 import io.github.ctorressoftware.academic.enrollment.shared.application.port.out.UnitOfWork;
