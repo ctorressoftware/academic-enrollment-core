@@ -71,9 +71,4 @@ public class SecurityConfig {
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-    @Bean
-    Clock clock() {
-        return Clock.systemUTC();
-    }
 }
