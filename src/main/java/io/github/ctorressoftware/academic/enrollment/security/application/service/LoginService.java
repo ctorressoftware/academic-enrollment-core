@@ -3,7 +3,9 @@ package io.github.ctorressoftware.academic.enrollment.security.application.servi
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginCommand;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.login.LoginUseCase;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.UserRepository;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidCredentialsException;
+import io.github.ctorressoftware.academic.enrollment.security.domain.model.User;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.out.TokenIssuer;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,12 +19,15 @@ import org.springframework.stereotype.Service;
 public class LoginService implements LoginUseCase {
     private final AuthenticationManager authManager;
     private final TokenIssuer tokenIssuer;
+    private final UserRepository repository;
 
     public LoginService(
             AuthenticationManager authManager,
-            TokenIssuer tokenIssuer) {
+            TokenIssuer tokenIssuer,
+            UserRepository repository) {
         this.authManager = authManager;
         this.tokenIssuer = tokenIssuer;
+        this.repository = repository;
     }
 
     @Override
@@ -42,7 +47,10 @@ public class LoginService implements LoginUseCase {
                 throw new InvalidCredentialsException(username);
             }
 
-            String accessToken = tokenIssuer.issueAccessToken(null);
+            User user = repository.findByUsername(username)
+                    .orElseThrow(() -> new InvalidCredentialsException(username));
+
+            String accessToken = tokenIssuer.issueAccessToken(user);
 
             return new LoginResult(username.value(), accessToken);
 
