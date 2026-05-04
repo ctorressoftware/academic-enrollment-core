@@ -3,7 +3,7 @@ package io.github.ctorressoftware.academic.enrollment.security.infrastructure.se
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidCredentialsException;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.User;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.UserRepository;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.UserRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.security;
 
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.PasswordHash;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.PasswordHasher;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.PasswordHasher;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

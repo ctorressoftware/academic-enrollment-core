@@ -3,7 +3,7 @@ package io.github.ctorressoftware.academic.enrollment.security.infrastructure.pe
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.PasswordHash;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.User;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.UserRepository;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.UserRepository;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.persistence.entity.UserEntity;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.persistence.repository.SpringDataUserRepository;
 import org.springframework.stereotype.Component;
