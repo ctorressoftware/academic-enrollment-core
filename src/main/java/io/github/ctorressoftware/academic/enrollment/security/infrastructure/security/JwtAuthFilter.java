@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,

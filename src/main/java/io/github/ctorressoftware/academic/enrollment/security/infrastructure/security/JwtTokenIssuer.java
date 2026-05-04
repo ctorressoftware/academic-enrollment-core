@@ -1,7 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.security.infrastructure.security;
 
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.User;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.TokenIssuer;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.TokenIssuer;
 import io.github.ctorressoftware.academic.enrollment.security.infrastructure.config.JwtConfig;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
