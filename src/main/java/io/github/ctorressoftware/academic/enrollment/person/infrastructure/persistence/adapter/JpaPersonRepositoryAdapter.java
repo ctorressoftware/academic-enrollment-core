@@ -9,8 +9,6 @@ import io.github.ctorressoftware.academic.enrollment.person.infrastructure.persi
 import io.github.ctorressoftware.academic.enrollment.person.infrastructure.persistence.repository.SpringDataPersonRepository;
 import org.springframework.stereotype.Component;
 
-import static io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType.*;
-
 @Component
 public class JpaPersonRepositoryAdapter implements PersonRepository {
 
@@ -27,19 +25,24 @@ public class JpaPersonRepositoryAdapter implements PersonRepository {
     }
 
     private Person toDomain(PersonEntity entity) {
-        DocumentType type = entity.getDocumentTypeId() == DNI.getId()
-                ? DNI : PASSPORT;
 
-        Document document = new Document(type, entity.getDocumentNumber());
+        Document document = new Document(
+                DocumentType.getById(entity.getDocumentTypeId()),
+                entity.getDocumentNumber()
+        );
 
-        return Person.create(
+        return Person.restore(
+                entity.getId(),
                 entity.getFirstName(),
                 entity.getMiddleName(),
                 entity.getLastName(),
                 entity.getSecondLastName(),
                 document,
                 entity.getGenderId(),
-                new Email(entity.getEmail())
+                new Email(entity.getEmail()),
+                entity.isActive(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt()
         );
     }
 
