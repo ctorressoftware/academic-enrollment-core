@@ -1,9 +1,7 @@
-package io.github.ctorressoftware.academic.enrollment.security.infrastructure.security.jwt;
+package io.github.ctorressoftware.academic.enrollment.security.infrastructure.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
-import java.time.Instant;
 
 @Configuration
 @ConfigurationProperties(prefix = "security.jwt")
