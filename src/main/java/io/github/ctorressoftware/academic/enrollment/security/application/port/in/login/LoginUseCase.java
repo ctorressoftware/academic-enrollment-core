@@ -1,7 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.security.application.usecase;
-
-import io.github.ctorressoftware.academic.enrollment.security.application.command.LoginCommand;
-import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
+package io.github.ctorressoftware.academic.enrollment.security.application.port.in.login;
 
 public interface LoginUseCase {
     LoginResult login(LoginCommand command);

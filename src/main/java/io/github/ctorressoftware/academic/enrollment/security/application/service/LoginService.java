@@ -1,11 +1,9 @@
-package io.github.ctorressoftware.academic.enrollment.security.application.service;
+package io.github.ctorressoftware.academic.enrollment.security.application.port.in.login;
 
 import io.github.ctorressoftware.academic.enrollment.security.application.command.LoginCommand;
 import io.github.ctorressoftware.academic.enrollment.security.domain.exception.InvalidCredentialsException;
-import io.github.ctorressoftware.academic.enrollment.security.application.result.LoginResult;
-import io.github.ctorressoftware.academic.enrollment.security.application.usecase.LoginUseCase;
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.Username;
-import io.github.ctorressoftware.academic.enrollment.security.domain.ports.TokenIssuer;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.out.TokenIssuer;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

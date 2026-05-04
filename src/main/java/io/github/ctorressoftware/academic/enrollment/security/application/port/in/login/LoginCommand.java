@@ -1,6 +1,6 @@
 package io.github.ctorressoftware.academic.enrollment.security.application.port.in.login;
 
-public record LoginResult(
+public record LoginCommand(
         String username,
-        String accessToken
+        String password
 ) {}

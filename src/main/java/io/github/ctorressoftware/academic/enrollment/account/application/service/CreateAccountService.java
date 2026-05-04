@@ -10,8 +10,8 @@ import io.github.ctorressoftware.academic.enrollment.person.domain.model.Documen
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
 import io.github.ctorressoftware.academic.enrollment.security.application.command.RegisterUserCommand;
-import io.github.ctorressoftware.academic.enrollment.security.application.result.RegisterUserResult;
-import io.github.ctorressoftware.academic.enrollment.security.application.usecase.RegisterUserUseCase;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserResult;
+import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserUseCase;
 import io.github.ctorressoftware.academic.enrollment.shared.application.port.out.UnitOfWork;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

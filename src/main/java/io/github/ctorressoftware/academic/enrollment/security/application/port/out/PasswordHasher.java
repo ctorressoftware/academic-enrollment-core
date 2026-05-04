@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.security.domain.ports;
+package io.github.ctorressoftware.academic.enrollment.security.application.port.out;
 
 import io.github.ctorressoftware.academic.enrollment.security.domain.model.PasswordHash;
 

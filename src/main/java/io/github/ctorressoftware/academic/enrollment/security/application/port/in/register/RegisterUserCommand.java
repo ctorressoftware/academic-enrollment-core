@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.security.application.command;
+package io.github.ctorressoftware.academic.enrollment.security.application.port.in.register;
 
 import java.util.UUID;
 
