@@ -16,7 +16,6 @@ import java.util.Objects;
 
 @Service
 public class RegisterUserService implements RegisterUserUseCase {
-
     private final UserRepository userRepository;
     private final PasswordHasher passwordHasher;
     private final TokenIssuer tokenIssuer;
