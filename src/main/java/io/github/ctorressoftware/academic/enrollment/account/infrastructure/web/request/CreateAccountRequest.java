@@ -2,6 +2,7 @@ package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record CreateAccountRequest(
@@ -33,5 +34,9 @@ public record CreateAccountRequest(
         String username,
 
         @NotBlank(message = "Password cannot be blank")
-        String password
+        String password,
+
+        // TODO: validate it for HttpMessageNotReadableException
+        @NotNull(message = "AccountType is required")
+        AccountType accountType
 ) {}
