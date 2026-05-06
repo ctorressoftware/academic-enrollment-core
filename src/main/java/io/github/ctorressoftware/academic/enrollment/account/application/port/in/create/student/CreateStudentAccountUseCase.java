@@ -1,5 +1,5 @@
-package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create;
+package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student;
 
-public interface CreateAccountUseCase {
-    CreateAccountResult create(CreateAccountCommand command);
+public interface CreateStudentAccountUseCase {
+    CreateStudentAccountResult create(CreateStudentAccountCommand command);
 }

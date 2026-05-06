@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.command;
+package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student;
 
 import java.util.UUID;
 
@@ -14,4 +14,4 @@ public record CreateStudentAccountCommand(
         String email,
         String username,
         String password
-) implements CreateAccountCommand {}
+) {}
