@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.command;
+package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher;
 
 public record CreateTeacherAccountCommand(
         String firstName,
@@ -11,4 +11,4 @@ public record CreateTeacherAccountCommand(
         String email,
         String username,
         String password
-) implements CreateAccountCommand {}
+) {}
