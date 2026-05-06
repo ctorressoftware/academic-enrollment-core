@@ -1,11 +1,11 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response;
 
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.Person;
-import io.github.ctorressoftware.academic.enrollment.student.domain.model.Student;
+import io.github.ctorressoftware.academic.enrollment.teacher.domain.model.Teacher;
 
-public record CreateStudentAccountResponse(
+public record CreateTeacherAccountResponse(
         Person person,
-        Student student,
+        Teacher teacher,
         String username,
         String accessToken
 ) {}

@@ -1,10 +1,10 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-import java.util.UUID;
-
-public record CreateStudentAccountRequest(
+public record CreateTeacherAccountRequest(
         @NotBlank(message = "FirstName cannot be blank")
         String firstName,
 
@@ -16,9 +16,6 @@ public record CreateStudentAccountRequest(
 
         @NotBlank(message = "SecondLastName cannot be blank")
         String secondLastName,
-
-        @NotNull(message = "CareerId cannot be null")
-        UUID careerId,
 
         @Min(value = 1, message = "DocumentTypeId only can be a value higher than zero")
         Short documentTypeId,
