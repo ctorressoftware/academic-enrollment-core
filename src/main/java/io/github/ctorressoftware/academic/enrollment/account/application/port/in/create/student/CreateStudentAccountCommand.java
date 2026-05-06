@@ -1,10 +1,13 @@
-package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create;
+package io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.command;
 
-public record CreateTeacherAccountCommand(
+import java.util.UUID;
+
+public record CreateStudentAccountCommand(
         String firstName,
         String middleName,
         String lastName,
         String secondLastName,
+        UUID careerId,
         short documentTypeId,
         String documentNumber,
         short genderId,
