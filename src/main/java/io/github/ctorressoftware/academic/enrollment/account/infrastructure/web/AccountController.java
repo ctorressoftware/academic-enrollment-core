@@ -1,13 +1,15 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web;
 
-import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountCommand;
-import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateAccountResult;
-import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateStudentAccountCommand;
-import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.CreateTeacherAccountCommand;
-import io.github.ctorressoftware.academic.enrollment.account.application.service.CreateAccountService;
-import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.AccountType;
-import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.CreateAccountRequest;
-import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response.CreateAccountResponse;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student.CreateStudentAccountResult;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student.CreateStudentAccountCommand;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountCommand;
+import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountResult;
+import io.github.ctorressoftware.academic.enrollment.account.application.service.CreateStudentAccountService;
+import io.github.ctorressoftware.academic.enrollment.account.application.service.CreateTeacherAccountService;
+import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.CreateStudentAccountRequest;
+import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request.CreateTeacherAccountRequest;
+import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response.CreateStudentAccountResponse;
+import io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.response.CreateTeacherAccountResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -16,60 +18,72 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Objects;
-
 @RestController
 @RequestMapping("/account")
 public class AccountController {
 
-    private final CreateAccountService service;
+    private final CreateStudentAccountService studentAccountService;
+    private final CreateTeacherAccountService teacherAccountService;
 
-    public AccountController(CreateAccountService service) {
-        this.service = service;
+    public AccountController(
+            CreateStudentAccountService studentAccountService,
+            CreateTeacherAccountService teacherAccountService) {
+        this.studentAccountService = studentAccountService;
+        this.teacherAccountService = teacherAccountService;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<ApiResponse<CreateAccountResponse>> create(@RequestBody @Valid CreateAccountRequest request) {
+    @PostMapping("/create/student")
+    public ResponseEntity<ApiResponse<CreateStudentAccountResponse>> createStudent(
+            @RequestBody @Valid CreateStudentAccountRequest request) {
 
-        CreateAccountCommand command = resolveCommand(request);
+        CreateStudentAccountCommand command = new CreateStudentAccountCommand(
+                request.firstName(),
+                request.middleName(),
+                request.lastName(),
+                request.secondLastName(),
+                request.careerId(),
+                request.documentTypeId(),
+                request.documentNumber(),
+                request.genderId(),
+                request.email(),
+                request.username(),
+                request.password()
+        );
 
-        CreateAccountResult result = service.create(command);
+        CreateStudentAccountResult result = studentAccountService.create(command);
 
-        return ResponseEntity.ok(ApiResponse.success(new CreateAccountResponse(
+        return ResponseEntity.ok(ApiResponse.success(new CreateStudentAccountResponse(
                 result.person(),
+                result.student(),
                 result.username(),
                 result.accessToken())
         ));
     }
 
-    private CreateAccountCommand resolveCommand(CreateAccountRequest request) {
+    @PostMapping("/create/teacher")
+    public ResponseEntity<ApiResponse<CreateTeacherAccountResponse>> createTeacher(
+            @RequestBody @Valid CreateTeacherAccountRequest request) {
 
-        return switch (request.accountType()) {
-            case STUDENT -> new CreateStudentAccountCommand(
-                    request.firstName(),
-                    request.middleName(),
-                    request.lastName(),
-                    request.secondLastName(),
-                    Objects.requireNonNull(request.careerId(), "careerId is required for student"),
-                    request.documentTypeId(),
-                    request.documentNumber(),
-                    request.genderId(),
-                    request.email(),
-                    request.username(),
-                    request.password()
-            );
-            case TEACHER -> new CreateTeacherAccountCommand(
-                    request.firstName(),
-                    request.middleName(),
-                    request.lastName(),
-                    request.secondLastName(),
-                    request.documentTypeId(),
-                    request.documentNumber(),
-                    request.genderId(),
-                    request.email(),
-                    request.username(),
-                    request.password()
-            );
-        };
+        CreateTeacherAccountCommand command = new CreateTeacherAccountCommand(
+                request.firstName(),
+                request.middleName(),
+                request.lastName(),
+                request.secondLastName(),
+                request.documentTypeId(),
+                request.documentNumber(),
+                request.genderId(),
+                request.email(),
+                request.username(),
+                request.password()
+        );
+
+        CreateTeacherAccountResult result = teacherAccountService.create(command);
+
+        return ResponseEntity.ok(ApiResponse.success(new CreateTeacherAccountResponse(
+                result.person(),
+                result.teacher(),
+                result.username(),
+                result.accessToken())
+        ));
     }
 }
