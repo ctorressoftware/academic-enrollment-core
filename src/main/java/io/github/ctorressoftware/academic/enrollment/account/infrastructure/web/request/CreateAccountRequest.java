@@ -1,9 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.account.infrastructure.web.request;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+
+import java.util.UUID;
 
 public record CreateAccountRequest(
         @NotBlank(message = "FirstName cannot be blank")
@@ -38,5 +37,8 @@ public record CreateAccountRequest(
 
         // TODO: validate it for HttpMessageNotReadableException
         @NotNull(message = "AccountType is required")
-        AccountType accountType
+        AccountType accountType,
+
+        @Null
+        UUID careerId
 ) {}
