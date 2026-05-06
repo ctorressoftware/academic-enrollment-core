@@ -1,6 +1,5 @@
 package io.github.ctorressoftware.academic.enrollment.account.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.command.CreateAccountCommand;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student.CreateStudentAccountResult;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student.CreateStudentAccountCommand;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.student.CreateStudentAccountUseCase;
@@ -81,6 +80,7 @@ public class CreateStudentAccountService implements CreateStudentAccountUseCase 
 
         return new CreateStudentAccountResult(
                 createPersonResult.person(),
+                createStudentResult.student(),
                 registerUserResult.username(),
                 registerUserResult.accessToken()
         );
