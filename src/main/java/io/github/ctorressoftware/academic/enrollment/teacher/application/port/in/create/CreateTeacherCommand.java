@@ -2,7 +2,4 @@ package io.github.ctorressoftware.academic.enrollment.teacher.application.port.i
 
 import java.util.UUID;
 
-public record CreateTeacherCommand(
-        UUID personId,
-        UUID careerId
-) {}
+public record CreateTeacherCommand(UUID personId) {}
