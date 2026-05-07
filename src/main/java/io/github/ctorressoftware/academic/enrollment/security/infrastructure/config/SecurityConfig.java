@@ -51,7 +51,10 @@ public class SecurityConfig {
                                 "/auth/register",
                                 "/auth/login",
                                 "/account/create/student",
-                                "/account/create/teacher"
+                                "/account/create/teacher",
+                                "/subject/create",
+                                "/subject/getAll",
+                                "/subject/get"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
