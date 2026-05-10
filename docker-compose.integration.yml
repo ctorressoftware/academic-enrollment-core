@@ -11,9 +11,33 @@ services:
       SPRING_DATASOURCE_USERNAME: ${DATABASE_USER}
       SPRING_DATASOURCE_PASSWORD: ${DATABASE_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: ${RABBITMQ_USER}
+      SPRING_RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
     depends_on:
       postgres:
         condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:4.3.0-management-alpine
+    container_name: enrollment-core-rabbitmq
+    restart: on-failure
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin # TODO: add to environment after testing
+      RABBITMQ_DEFAULT_PASS: admin # TODO: add to environment after testing
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   postgres:
     image: postgres:18.3
@@ -34,3 +58,4 @@ services:
       retries: 10
 volumes:
   postgres_data:
+  rabbitmq_data:
