@@ -16,7 +16,6 @@ public class CreateEnrollmentService implements CreateEnrollmentUseCase {
         this.repository = repository;
     }
 
-    // TODO: implement RabbitMQ to enroll service
     @Override
     public CreateEnrollmentResult enroll(CreateEnrollmentCommand command) {
 
