@@ -1,6 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.person.domain.model;
 
 import java.time.Instant;
+import java.util.Objects;
 
 public class DocumentType {
     private final short id;
@@ -19,14 +20,19 @@ public class DocumentType {
             Instant updatedAt
     ) {
         this.id = id;
-        this.code = code;
-        this.description = description;
+        this.code = Objects.requireNonNull(code, "code cannot be null");
+        this.description = Objects.requireNonNull(description, "description cannot be null");
         this.active = active;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdAt = Objects.requireNonNull(createdAt, "createdAt cannot be null");
+        this.updatedAt = Objects.requireNonNull(updatedAt, "updatedAt cannot be null");
     }
 
     public static DocumentType create(short id, String code, String description) {
+
+        if (id <= 0) {
+            throw new IllegalArgumentException("id must be higher than zero");
+        }
+
         Instant now = Instant.now();
         return new DocumentType(
                 id,
@@ -35,6 +41,24 @@ public class DocumentType {
                 true,
                 now,
                 now
+        );
+    }
+
+    public static DocumentType restore(
+            short id,
+            String code,
+            String description,
+            boolean active,
+            Instant createdAt,
+            Instant updatedAt
+    ) {
+        return new DocumentType(
+                id,
+                code,
+                description,
+                active,
+                createdAt,
+                updatedAt
         );
     }
 

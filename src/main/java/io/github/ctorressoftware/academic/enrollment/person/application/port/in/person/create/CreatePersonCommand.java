@@ -1,7 +1,7 @@
 package io.github.ctorressoftware.academic.enrollment.person.application.port.in.create;
 
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Document;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Email;
 
 public record CreatePersonCommand(
         String firstName,

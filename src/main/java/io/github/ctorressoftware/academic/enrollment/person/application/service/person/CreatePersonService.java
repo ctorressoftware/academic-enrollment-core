@@ -1,10 +1,10 @@
 package io.github.ctorressoftware.academic.enrollment.person.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonCommand;
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonResult;
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonUseCase;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonCommand;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonResult;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonUseCase;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.out.PersonRepository;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Person;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Person;
 import org.springframework.stereotype.Service;
 
 @Service
