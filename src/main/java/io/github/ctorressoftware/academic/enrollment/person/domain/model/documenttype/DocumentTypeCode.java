@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.person.domain.model;
+package io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype;
 
 public enum DocumentTypeCode {
     DNI((short) 1, "DNI"),
