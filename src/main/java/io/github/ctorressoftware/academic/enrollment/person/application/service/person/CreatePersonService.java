@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.person.application.service;
+package io.github.ctorressoftware.academic.enrollment.person.application.service.person;
 
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonCommand;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonResult;

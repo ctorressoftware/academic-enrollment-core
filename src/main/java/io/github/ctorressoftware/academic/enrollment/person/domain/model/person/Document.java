@@ -1,5 +1,6 @@
-package io.github.ctorressoftware.academic.enrollment.person.domain.model;
+package io.github.ctorressoftware.academic.enrollment.person.domain.model.person;
 
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype.DocumentTypeCode;
 import io.github.ctorressoftware.academic.enrollment.person.domain.validator.DocumentValidatorFactory;
 
 public record Document(DocumentTypeCode type, String value) {

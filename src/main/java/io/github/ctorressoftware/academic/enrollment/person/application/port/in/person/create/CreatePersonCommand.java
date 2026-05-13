@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.person.application.port.in.create;
+package io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create;
 
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Document;
 import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Email;

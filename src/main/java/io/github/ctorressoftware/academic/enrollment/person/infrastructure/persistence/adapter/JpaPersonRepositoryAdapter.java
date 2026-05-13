@@ -1,10 +1,10 @@
 package io.github.ctorressoftware.academic.enrollment.person.infrastructure.persistence.adapter;
 
 import io.github.ctorressoftware.academic.enrollment.person.application.port.out.PersonRepository;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Person;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Document;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype.DocumentTypeCode;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Email;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Person;
 import io.github.ctorressoftware.academic.enrollment.person.infrastructure.persistence.entity.PersonEntity;
 import io.github.ctorressoftware.academic.enrollment.person.infrastructure.persistence.repository.SpringDataPersonRepository;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class JpaPersonRepositoryAdapter implements PersonRepository {
     private Person toDomain(PersonEntity entity) {
 
         Document document = new Document(
-                DocumentType.getById(entity.getDocumentTypeId()),
+                DocumentTypeCode.getById(entity.getDocumentTypeId()),
                 entity.getDocumentNumber()
         );
 

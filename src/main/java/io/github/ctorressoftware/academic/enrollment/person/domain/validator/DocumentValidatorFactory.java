@@ -1,12 +1,12 @@
 package io.github.ctorressoftware.academic.enrollment.person.domain.validator;
 
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype.DocumentTypeCode;
 
 public class DocumentValidatorFactory {
     private static final DominicanDniValidator DNI_VALIDATOR = new DominicanDniValidator();
     private static final PassportValidator PASSPORT_VALIDATOR = new PassportValidator();
 
-    public static DocumentValidator getValidator(DocumentType type) {
+    public static DocumentValidator getValidator(DocumentTypeCode type) {
 
         if (type == null) {
             throw new IllegalArgumentException("Document type cannot be null");

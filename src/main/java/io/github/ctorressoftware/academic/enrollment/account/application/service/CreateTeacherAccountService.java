@@ -3,12 +3,12 @@ package io.github.ctorressoftware.academic.enrollment.account.application.servic
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountCommand;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountResult;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountUseCase;
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonCommand;
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonResult;
-import io.github.ctorressoftware.academic.enrollment.person.application.port.in.create.CreatePersonUseCase;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Document;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.DocumentType;
-import io.github.ctorressoftware.academic.enrollment.person.domain.model.Email;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonCommand;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonResult;
+import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonUseCase;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Document;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype.DocumentTypeCode;
+import io.github.ctorressoftware.academic.enrollment.person.domain.model.person.Email;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserCommand;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserResult;
 import io.github.ctorressoftware.academic.enrollment.security.application.port.in.register.RegisterUserUseCase;
@@ -42,7 +42,7 @@ public class CreateTeacherAccountService implements CreateTeacherAccountUseCase 
     public CreateTeacherAccountResult create(CreateTeacherAccountCommand command) {
 
         Document document = new Document(
-                DocumentType.getById(command.documentTypeId()),
+                DocumentTypeCode.getById(command.documentTypeId()),
                 command.documentNumber()
         );
 
