@@ -1,17 +1,17 @@
-package io.github.ctorressoftware.academic.enrollment.person.domain.model.documenttype;
+package io.github.ctorressoftware.academic.enrollment.person.domain.model.gender;
 
 import java.time.Instant;
 import java.util.Objects;
 
-public class DocumentType {
-    private final short id;
+public class Gender {
+    private final Short id;
     private final String code;
     private final String description;
     private final boolean active;
     private final Instant createdAt;
     private final Instant updatedAt;
 
-    private DocumentType(
+    private Gender(
             short id,
             String code,
             String description,
@@ -27,14 +27,14 @@ public class DocumentType {
         this.updatedAt = Objects.requireNonNull(updatedAt, "updatedAt cannot be null");
     }
 
-    public static DocumentType create(short id, String code, String description) {
+    public static Gender create(short id, String code, String description) {
 
         if (id <= 0) {
             throw new IllegalArgumentException("id must be higher than zero");
         }
 
         Instant now = Instant.now();
-        return new DocumentType(
+        return new Gender(
                 id,
                 code,
                 description,
@@ -44,7 +44,7 @@ public class DocumentType {
         );
     }
 
-    public static DocumentType restore(
+    public static Gender restore(
             short id,
             String code,
             String description,
@@ -52,7 +52,7 @@ public class DocumentType {
             Instant createdAt,
             Instant updatedAt
     ) {
-        return new DocumentType(
+        return new Gender(
                 id,
                 code,
                 description,
