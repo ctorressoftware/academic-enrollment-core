@@ -17,7 +17,7 @@ public class CreateDocumentTypeService implements CreateDocumentTypeUseCase {
     }
 
     @Override
-    public CreateDocumentTypeResult save(CreateDocumentTypeCommand command) {
+    public CreateDocumentTypeResult create(CreateDocumentTypeCommand command) {
         DocumentType documentType = DocumentType.create(
                 command.id(),
                 command.code(),

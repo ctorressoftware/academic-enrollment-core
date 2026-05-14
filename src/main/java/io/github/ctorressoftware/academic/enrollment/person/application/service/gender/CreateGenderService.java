@@ -17,7 +17,7 @@ public class CreateGenderService implements CreateGenderUseCase {
     }
 
     @Override
-    public CreateGenderResult save(CreateGenderCommand command) {
+    public CreateGenderResult create(CreateGenderCommand command) {
 
         Gender gender = Gender.create(
                 command.id(),
