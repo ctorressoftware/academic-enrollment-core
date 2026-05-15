@@ -56,7 +56,9 @@ public class SecurityConfig {
                                 "/subject/getAll",
                                 "/subject/get",
                                 "/enrollment/enroll",
-                                "/enrollment/getByStudentId"
+                                "/enrollment/getByStudentId",
+                                "/documenttype/create",
+                                "/gender/create"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
