@@ -4,6 +4,4 @@ import io.github.ctorressoftware.academic.enrollment.enrollment.domain.model.Enr
 
 import java.util.List;
 
-public record GetEnrollmentsByStudentIdResponse(
-        List<Enrollment> enrollments
-) {}
+public record GetEnrollmentsByStudentIdResponse(List<Enrollment> enrollments) {}
