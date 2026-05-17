@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.getAllByGroupCode;
+package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.getAllByGroupCode;
 
 import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
 

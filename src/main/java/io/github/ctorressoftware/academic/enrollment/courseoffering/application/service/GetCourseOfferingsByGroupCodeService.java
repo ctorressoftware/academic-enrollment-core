@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.getAllByGroupCode.GetCourseOfferingsByGroupCodeCommand;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.getAllByGroupCode.GetCourseOfferingsByGroupCodeResult;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.getAllByGroupCode.GetCourseOfferingsByGroupCodeUseCase;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.getAllByGroupCode.GetCourseOfferingsByGroupCodeCommand;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.getAllByGroupCode.GetCourseOfferingsByGroupCodeResult;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.getAllByGroupCode.GetCourseOfferingsByGroupCodeUseCase;
 import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out.CourseOfferingRepository;
 import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
 import org.springframework.stereotype.Service;
