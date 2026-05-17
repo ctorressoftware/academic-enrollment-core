@@ -1,11 +1,11 @@
 package io.github.ctorressoftware.academic.enrollment.enrollment.infrastructure.web;
 
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enroll.CreateEnrollmentCommand;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enroll.CreateEnrollmentResult;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enroll.CreateEnrollmentUseCase;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdCommand;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdResult;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdUseCase;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.enroll.CreateEnrollmentCommand;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.enroll.CreateEnrollmentResult;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.enroll.CreateEnrollmentUseCase;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdCommand;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdResult;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdUseCase;
 import io.github.ctorressoftware.academic.enrollment.enrollment.infrastructure.web.request.CreateEnrollmentRequest;
 import io.github.ctorressoftware.academic.enrollment.enrollment.infrastructure.web.response.CreateEnrollmentResponse;
 import io.github.ctorressoftware.academic.enrollment.enrollment.infrastructure.web.response.GetEnrollmentsByStudentIdResponse;

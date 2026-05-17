@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.enrollment.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdCommand;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdResult;
-import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.getAllByStudentId.GetEnrollmentsByStudentIdUseCase;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdCommand;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdResult;
+import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.in.enrollment.getbystudentid.GetEnrollmentsByStudentIdUseCase;
 import io.github.ctorressoftware.academic.enrollment.enrollment.application.port.out.EnrollmentRepository;
 import io.github.ctorressoftware.academic.enrollment.enrollment.domain.model.Enrollment;
 import org.springframework.stereotype.Service;
