@@ -60,7 +60,9 @@ public class SecurityConfig {
                                 "/documenttype/create",
                                 "/gender/create",
                                 "/enrollment-state/create",
-                                "/enrollment-state/getAll"
+                                "/enrollment-state/getAll",
+                                "/course-state/create",
+                                "/course-state/getAll"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
