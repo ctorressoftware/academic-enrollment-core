@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.subject.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.create.CreateSubjectCommand;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.create.CreateSubjectResult;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.create.CreateSubjectUseCase;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.create.CreateSubjectCommand;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.create.CreateSubjectResult;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.create.CreateSubjectUseCase;
 import io.github.ctorressoftware.academic.enrollment.subject.application.port.out.SubjectRepository;
 import io.github.ctorressoftware.academic.enrollment.subject.domain.model.Subject;
 import org.springframework.stereotype.Service;

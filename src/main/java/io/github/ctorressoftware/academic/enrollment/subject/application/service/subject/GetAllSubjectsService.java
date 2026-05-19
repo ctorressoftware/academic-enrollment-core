@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.subject.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getAll.GetAllSubjectsCommand;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getAll.GetAllSubjectsResult;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getAll.GetAllSubjectsUseCase;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getAll.GetAllSubjectsCommand;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getAll.GetAllSubjectsResult;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getAll.GetAllSubjectsUseCase;
 import io.github.ctorressoftware.academic.enrollment.subject.application.port.out.SubjectRepository;
 import io.github.ctorressoftware.academic.enrollment.subject.domain.model.Subject;
 import org.springframework.stereotype.Service;

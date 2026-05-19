@@ -1,8 +1,8 @@
 package io.github.ctorressoftware.academic.enrollment.subject.application.service;
 
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getByCode.GetSubjectByCodeCommand;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getByCode.GetSubjectByCodeResult;
-import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getByCode.GetSubjectByCodeUseCase;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getByCode.GetSubjectByCodeCommand;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getByCode.GetSubjectByCodeResult;
+import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getByCode.GetSubjectByCodeUseCase;
 import io.github.ctorressoftware.academic.enrollment.subject.application.port.out.SubjectRepository;
 import io.github.ctorressoftware.academic.enrollment.subject.domain.exception.SubjectNotFoundException;
 import io.github.ctorressoftware.academic.enrollment.subject.domain.model.Subject;
