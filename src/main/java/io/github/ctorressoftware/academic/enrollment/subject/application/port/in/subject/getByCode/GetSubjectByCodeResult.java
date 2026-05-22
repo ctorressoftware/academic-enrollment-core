@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.subject.application.port.in.getByCode;
+package io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getByCode;
 
 import io.github.ctorressoftware.academic.enrollment.subject.domain.model.Subject;
 

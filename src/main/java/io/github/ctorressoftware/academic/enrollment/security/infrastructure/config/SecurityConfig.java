@@ -65,7 +65,9 @@ public class SecurityConfig {
                                 "/course-state/getAll",
                                 "/career/create",
                                 "/career/getAll",
-                                "/career/getByCode"
+                                "/career/getByCode",
+                                "/prerequisite/create",
+                                "/prerequisite/getAllBySubjectId"
                         )
                         .permitAll()
                         .anyRequest().authenticated())

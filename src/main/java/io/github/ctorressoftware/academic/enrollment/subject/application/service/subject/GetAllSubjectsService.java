@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.subject.application.service;
+package io.github.ctorressoftware.academic.enrollment.subject.application.service.subject;
 
 import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getAll.GetAllSubjectsCommand;
 import io.github.ctorressoftware.academic.enrollment.subject.application.port.in.subject.getAll.GetAllSubjectsResult;

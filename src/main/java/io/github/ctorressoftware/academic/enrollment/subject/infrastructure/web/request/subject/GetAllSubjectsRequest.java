@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.request;
+package io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.request.subject;
 
 import jakarta.validation.constraints.Size;
 
