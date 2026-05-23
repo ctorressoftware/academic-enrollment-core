@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="[Local Swagger]" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="local" />
+    <option name="envFilePaths">
+      <option value="$PROJECT_DIR$/.env.local" />
+    </option>
+    <module name="academic-enrollment-core" />
+    <selectedOptions>
+      <option name="environmentVariables" />
+    </selectedOptions>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.ctorressoftware.academic.enrollment.AcademicEnrollmentCoreApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="LaunchBrowser.Before.Run" url="http://localhost:8080/swagger-ui/index.html" />
+    </method>
+  </configuration>
+</component>
