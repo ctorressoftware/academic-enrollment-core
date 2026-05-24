@@ -25,6 +25,12 @@ public class JpaRoleRepositoryAdapter implements RoleRepository {
     }
 
     @Override
+    public Optional<Role> findById(short id) {
+        return repository.findById(id)
+                .map(this::toDomain);
+    }
+
+    @Override
     public Optional<Role> findByCode(String code) {
         return repository.findByCode(code)
                 .map(this::toDomain);

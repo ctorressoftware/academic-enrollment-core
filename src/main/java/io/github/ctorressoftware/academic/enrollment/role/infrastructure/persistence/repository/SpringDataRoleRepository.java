@@ -12,5 +12,9 @@ import java.util.Optional;
 public interface SpringDataRoleRepository extends JpaRepository<RoleEntity, Short> {
     @Override
     Page<RoleEntity> findAll(Pageable pageable);
+
+    @Override
+    Optional<RoleEntity> findById(Short id);
+
     Optional<RoleEntity> findByCode(String code);
 }
