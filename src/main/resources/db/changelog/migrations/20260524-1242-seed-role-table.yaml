@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260524-1242-seed-role-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - tableExists:
+            tableName: role
+        - sqlCheck:
+            expectedResult: "0"
+            sql: SELECT COUNT(*) FROM role
+      changes:
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: code
+                  value: ADMIN
+              - column:
+                  name: description
+                  value: Administrator
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: created_at
+                  valueComputed: now()
+              - column:
+                  name: updated_at
+                  valueComputed: now()
+
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: code
+                  value: TEACHER
+              - column:
+                  name: description
+                  value: Teacher
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: created_at
+                  valueComputed: now()
+              - column:
+                  name: updated_at
+                  valueComputed: now()
+
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 3
+              - column:
+                  name: code
+                  value: STUDENT
+              - column:
+                  name: description
+                  value: Student
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: created_at
+                  valueComputed: now()
+              - column:
+                  name: updated_at
+                  valueComputed: now()
