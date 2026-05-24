@@ -134,3 +134,19 @@ databaseChangeLog:
   - include:
       file: migrations/20260419-0045-add-enrollment-unique-constraint.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260524-1231-create-enrollment-window-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260524-1240-create-role-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260524-1242-seed-role-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: migrations/20260524-1244-add-role-id-fk-to-users-table.yaml
+      relativeToChangelogFile: true
