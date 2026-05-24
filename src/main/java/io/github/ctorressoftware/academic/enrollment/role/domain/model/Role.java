@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.security.domain.model;
+package io.github.ctorressoftware.academic.enrollment.role.domain.model;
 
 import java.time.Instant;
 import java.util.Objects;
