@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260524-1244-add-role-id-fk-to-users-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - tableExists:
+            tableName: users
+        - tableExists:
+            tableName: role
+        - not:
+            - columnExists:
+                tableName: users
+                columnName: role_id
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: role_id
+                  type: smallint
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: users
+            baseColumnNames: role_id
+            constraintName: fk_users_role
+            referencedTableName: role
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
