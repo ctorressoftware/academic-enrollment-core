@@ -1,9 +1,9 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service.state;
+package io.github.ctorressoftware.academic.enrollment.course.application.service.state;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.getall.GetAllCourseStatesResult;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.getall.GetAllCourseStatesUseCase;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out.CourseStateRepository;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseState;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.getall.GetAllCourseStatesResult;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.getall.GetAllCourseStatesUseCase;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.out.CourseStateRepository;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseState;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

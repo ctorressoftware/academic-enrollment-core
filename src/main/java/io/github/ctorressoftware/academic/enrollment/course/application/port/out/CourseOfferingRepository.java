@@ -1,9 +1,8 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out;
+package io.github.ctorressoftware.academic.enrollment.course.application.port.out;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseOffering;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface CourseOfferingRepository {
     CourseOffering save(CourseOffering courseOffering);

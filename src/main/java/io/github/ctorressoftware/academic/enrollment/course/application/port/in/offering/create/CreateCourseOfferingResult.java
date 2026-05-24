@@ -1,5 +1,5 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.create;
+package io.github.ctorressoftware.academic.enrollment.course.application.port.in.offering.create;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseOffering;
 
 public record CreateCourseOfferingResult(CourseOffering courseOffering) {}

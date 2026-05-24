@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.persistence.entity;
+package io.github.ctorressoftware.academic.enrollment.course.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 

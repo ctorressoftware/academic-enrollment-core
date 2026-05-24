@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.create;
+package io.github.ctorressoftware.academic.enrollment.course.application.port.in.offering.create;
 
 import java.util.UUID;
 

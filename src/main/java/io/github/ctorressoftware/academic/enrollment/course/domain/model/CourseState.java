@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model;
+package io.github.ctorressoftware.academic.enrollment.course.domain.model;
 
 import java.time.Instant;
 import java.util.Objects;

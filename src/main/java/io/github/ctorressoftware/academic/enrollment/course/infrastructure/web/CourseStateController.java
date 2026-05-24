@@ -1,13 +1,13 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web;
+package io.github.ctorressoftware.academic.enrollment.course.infrastructure.web;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.create.CreateCourseStateCommand;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.create.CreateCourseStateResult;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.create.CreateCourseStateUseCase;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.getall.GetAllCourseStatesResult;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.getall.GetAllCourseStatesUseCase;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web.request.CreateCourseStateRequest;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web.response.CreateCourseStateResponse;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web.response.GetAllCourseStatesResponse;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.create.CreateCourseStateCommand;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.create.CreateCourseStateResult;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.create.CreateCourseStateUseCase;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.getall.GetAllCourseStatesResult;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.in.state.getall.GetAllCourseStatesUseCase;
+import io.github.ctorressoftware.academic.enrollment.course.infrastructure.web.request.CreateCourseStateRequest;
+import io.github.ctorressoftware.academic.enrollment.course.infrastructure.web.response.CreateCourseStateResponse;
+import io.github.ctorressoftware.academic.enrollment.course.infrastructure.web.response.GetAllCourseStatesResponse;
 import io.github.ctorressoftware.academic.enrollment.shared.infrastructure.web.response.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

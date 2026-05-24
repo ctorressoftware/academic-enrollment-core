@@ -1,6 +1,6 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web.response;
+package io.github.ctorressoftware.academic.enrollment.course.infrastructure.web.response;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseState;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseState;
 
 import java.util.List;
 

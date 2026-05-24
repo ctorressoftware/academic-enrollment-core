@@ -1,9 +1,9 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.persistence.adapter;
+package io.github.ctorressoftware.academic.enrollment.course.infrastructure.persistence.adapter;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out.CourseOfferingRepository;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.persistence.entity.CourseOfferingEntity;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.persistence.repository.SpringDataCourseOfferingRepository;
+import io.github.ctorressoftware.academic.enrollment.course.application.port.out.CourseOfferingRepository;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseOffering;
+import io.github.ctorressoftware.academic.enrollment.course.infrastructure.persistence.entity.CourseOfferingEntity;
+import io.github.ctorressoftware.academic.enrollment.course.infrastructure.persistence.repository.SpringDataCourseOfferingRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

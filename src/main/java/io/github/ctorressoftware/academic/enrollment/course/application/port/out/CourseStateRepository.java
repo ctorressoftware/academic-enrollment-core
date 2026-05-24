@@ -1,6 +1,6 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out;
+package io.github.ctorressoftware.academic.enrollment.course.application.port.out;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseState;
+import io.github.ctorressoftware.academic.enrollment.course.domain.model.CourseState;
 
 import java.util.List;
 

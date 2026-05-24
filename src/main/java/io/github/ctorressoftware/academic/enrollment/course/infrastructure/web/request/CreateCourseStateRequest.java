@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.infrastructure.web.request;
+package io.github.ctorressoftware.academic.enrollment.course.infrastructure.web.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
