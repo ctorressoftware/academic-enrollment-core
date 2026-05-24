@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260524-1231-create-enrollment-window-table
+      author: Carlos Torres
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - tableExists:
+                tableName: enrollment_window
+      changes:
+        - createTable:
+            tableName: enrollment_window
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_enrollment_window
+                    nullable: false
+
+              - column:
+                  name: academic_period_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: opens_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: closes_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: updated_at
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: enrollment_window
+            baseColumnNames: academic_period_id
+            constraintName: fk_enrollment_window_academic_period
+            referencedTableName: academic_period
+            referencedColumnNames: id
+            onUpdate: CASCADE
+            onDelete: RESTRICT
+
+        - sql:
+            sql: >
+              ALTER TABLE enrollment_window
+              ADD CONSTRAINT ck_enrollment_window_closes_after_opens
+              CHECK (closes_at > opens_at);
