@@ -47,6 +47,7 @@ public class JpaUserRepositoryAdapter implements UserRepository {
         return User.restore(
                 entity.getId(),
                 entity.getPersonId(),
+                entity.getRoleId(),
                 new Username(entity.getUsername()),
                 new PasswordHash(entity.getPasswordHash()),
                 entity.isActive(),
@@ -59,6 +60,7 @@ public class JpaUserRepositoryAdapter implements UserRepository {
         UserEntity entity = new UserEntity();
         entity.setId(user.getId());
         entity.setPersonId(user.getPersonId());
+        entity.setRoleId(user.getRoleId());
         entity.setUsername(user.getUsername().value());
         entity.setPasswordHash(user.getPasswordHash().value());
         entity.setActive(user.isActive());

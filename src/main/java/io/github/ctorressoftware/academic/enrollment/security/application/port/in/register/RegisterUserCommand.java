@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public record RegisterUserCommand(
         UUID personId,
+        short roleId,
         String username,
         String password
 ) {}

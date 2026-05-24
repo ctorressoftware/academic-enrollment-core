@@ -16,6 +16,9 @@ public class UserEntity {
     @Column(name = "person_id", unique = true, nullable = false)
     private UUID personId;
 
+    @Column(name = "role_id", nullable = false)
+    private short roleId;
+
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
@@ -45,6 +48,14 @@ public class UserEntity {
 
     public void setPersonId(UUID personId) {
         this.personId = personId;
+    }
+
+    public short getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(short roleId) {
+        this.roleId = roleId;
     }
 
     public String getUsername() {

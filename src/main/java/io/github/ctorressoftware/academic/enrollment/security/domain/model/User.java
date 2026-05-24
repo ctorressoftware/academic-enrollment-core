@@ -7,6 +7,7 @@ import java.util.UUID;
 public class User {
     private final UUID id;
     private final UUID personId;
+    private final short roleId;
     private final Username username;
     private final PasswordHash passwordHash;
     private final boolean active;
@@ -16,6 +17,7 @@ public class User {
     private User(
             UUID id,
             UUID personId,
+            short roleId,
             Username username,
             PasswordHash passwordHash,
             boolean active,
@@ -23,6 +25,7 @@ public class User {
             Instant updatedAt) {
         this.id = Objects.requireNonNull(id, "id is null");
         this.personId = Objects.requireNonNull(personId, "personId is null");
+        this.roleId = roleId;
         this.username = Objects.requireNonNull(username, "username is null");
         this.passwordHash = Objects.requireNonNull(passwordHash, "passwordHash is null");
         this.active = active;
@@ -30,11 +33,12 @@ public class User {
         this.updatedAt = Objects.requireNonNull(updatedAt, "updatedAt is null");
     }
 
-    public static User create(UUID personId, Username username, PasswordHash passwordHash) {
+    public static User create(UUID personId, short roleId, Username username, PasswordHash passwordHash) {
         final var now = Instant.now();
         return new User(
                 UUID.randomUUID(),
                 personId,
+                roleId,
                 username,
                 passwordHash,
                 true,
@@ -46,6 +50,7 @@ public class User {
     public static User restore(
             UUID id,
             UUID personId,
+            short roleId,
             Username username,
             PasswordHash passwordHash,
             boolean active,
@@ -54,6 +59,7 @@ public class User {
         return new User(
                 id,
                 personId,
+                roleId,
                 username,
                 passwordHash,
                 active,
@@ -68,6 +74,10 @@ public class User {
 
     public UUID getPersonId() {
         return personId;
+    }
+
+    public short getRoleId() {
+        return roleId;
     }
 
     public Username getUsername() {

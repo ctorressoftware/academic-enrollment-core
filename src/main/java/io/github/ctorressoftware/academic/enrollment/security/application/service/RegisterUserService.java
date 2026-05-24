@@ -40,7 +40,14 @@ public class RegisterUserService implements RegisterUserUseCase {
         }
 
         PasswordHash passwordHash = passwordHasher.hash(command.password());
-        User user = User.create(command.personId(), username, passwordHash);
+
+        User user = User.create(
+                command.personId(),
+                command.roleId(),
+                username,
+                passwordHash
+        );
+
         User savedUser = userRepository.save(user);
         String accessToken = tokenIssuer.issueAccessToken(savedUser);
 
