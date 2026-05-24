@@ -1,8 +1,8 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service;
+package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service.offering;
 
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.create.CreateCourseOfferingCommand;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.create.CreateCourseOfferingResult;
-import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.create.CreateCourseOfferingUseCase;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.create.CreateCourseOfferingCommand;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.create.CreateCourseOfferingResult;
+import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.create.CreateCourseOfferingUseCase;
 import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.out.CourseOfferingRepository;
 import io.github.ctorressoftware.academic.enrollment.courseoffering.domain.model.CourseOffering;
 import org.springframework.stereotype.Service;

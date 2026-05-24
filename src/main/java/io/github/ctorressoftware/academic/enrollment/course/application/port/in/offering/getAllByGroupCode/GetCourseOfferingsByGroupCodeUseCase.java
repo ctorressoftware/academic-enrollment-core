@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.course.getAllByGroupCode;
+package io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.offering.getAllByGroupCode;
 
 public interface GetCourseOfferingsByGroupCodeUseCase {
     GetCourseOfferingsByGroupCodeResult getAll(

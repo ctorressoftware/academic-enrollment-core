@@ -1,4 +1,4 @@
-package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service;
+package io.github.ctorressoftware.academic.enrollment.courseoffering.application.service.state;
 
 import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.create.CreateCourseStateCommand;
 import io.github.ctorressoftware.academic.enrollment.courseoffering.application.port.in.state.create.CreateCourseStateResult;
