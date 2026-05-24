@@ -3,6 +3,7 @@ package io.github.ctorressoftware.academic.enrollment.account.application.servic
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountCommand;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountResult;
 import io.github.ctorressoftware.academic.enrollment.account.application.port.in.create.teacher.CreateTeacherAccountUseCase;
+import io.github.ctorressoftware.academic.enrollment.account.domain.enums.RoleType;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonCommand;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonResult;
 import io.github.ctorressoftware.academic.enrollment.person.application.port.in.person.create.CreatePersonUseCase;
@@ -69,6 +70,7 @@ public class CreateTeacherAccountService implements CreateTeacherAccountUseCase 
 
         RegisterUserCommand registerCommand = new RegisterUserCommand(
                 createPersonResult.person().getId(),
+                RoleType.TEACHER.getId(),
                 command.username(),
                 command.password()
         );
