@@ -3,9 +3,6 @@ package io.github.ctorressoftware.academic.enrollment.role.domain.model;
 import java.time.Instant;
 import java.util.Objects;
 
-/* TODO: create ports and a controller for admin role
-   maybe it's a good idea to separate this in its own slice.
-*/
 public class Role {
     private final short id;
     private final String code;
