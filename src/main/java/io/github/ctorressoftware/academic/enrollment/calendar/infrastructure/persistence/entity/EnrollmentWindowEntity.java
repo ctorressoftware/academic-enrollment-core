@@ -50,6 +50,14 @@ public class EnrollmentWindowEntity {
         this.id = id;
     }
 
+    public void setAcademicPeriodId(UUID academicPeriodId) {
+        this.academicPeriodId = academicPeriodId;
+    }
+
+    public UUID getAcademicPeriodId() {
+        return academicPeriodId;
+    }
+
     public Instant getUpdatedAt() {
         return updatedAt;
     }
