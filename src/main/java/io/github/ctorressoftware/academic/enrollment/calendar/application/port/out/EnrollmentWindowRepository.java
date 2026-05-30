@@ -7,6 +7,5 @@ import java.util.UUID;
 
 public interface EnrollmentWindowRepository {
     EnrollmentWindow save(EnrollmentWindow enrollmentWindow);
-    Optional<EnrollmentWindow> findByAcademicPeriodIdAndIsActive(
-            UUID academicPeriodId, boolean active);
+    Optional<EnrollmentWindow> findActiveByAcademicPeriodId(UUID academicPeriodId);
 }

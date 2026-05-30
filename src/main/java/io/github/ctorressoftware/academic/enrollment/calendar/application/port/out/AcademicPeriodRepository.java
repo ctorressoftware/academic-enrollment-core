@@ -6,9 +6,8 @@ import java.util.Optional;
 
 public interface AcademicPeriodRepository {
     AcademicPeriod save(AcademicPeriod academicPeriod);
-    Optional<AcademicPeriod> findByQuarterAndYearAndIsActive(
+    Optional<AcademicPeriod> findActiveByQuarterAndYear(
             String quarter,
-            short year,
-            boolean active
+            short year
     );
 }
