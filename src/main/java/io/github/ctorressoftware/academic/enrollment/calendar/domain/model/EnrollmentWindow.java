@@ -84,7 +84,7 @@ public class EnrollmentWindow {
         return academicPeriodId;
     }
 
-    public String gettype() {
+    public String getType() {
         return type;
     }
 
