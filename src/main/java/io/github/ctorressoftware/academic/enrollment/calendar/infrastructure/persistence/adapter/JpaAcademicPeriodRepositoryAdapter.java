@@ -7,6 +7,7 @@ import io.github.ctorressoftware.academic.enrollment.calendar.infrastructure.per
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class JpaAcademicPeriodRepositoryAdapter implements AcademicPeriodRepository {
@@ -21,6 +22,12 @@ public class JpaAcademicPeriodRepositoryAdapter implements AcademicPeriodReposit
     public AcademicPeriod save(AcademicPeriod academicPeriod) {
         AcademicPeriodEntity saved = repository.save(toEntity(academicPeriod));
         return toDomain(saved);
+    }
+
+    @Override
+    public Optional<AcademicPeriod> findById(UUID academicPeriodId) {
+        return repository.findById(academicPeriodId)
+                .map(this::toDomain);
     }
 
     @Override
