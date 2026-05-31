@@ -70,7 +70,11 @@ public class SecurityConfig {
                                 "/prerequisite/getAllBySubjectId",
                                 "/role/create",
                                 "/role/findByCode/**",
-                                "/role/findAll"
+                                "/role/findAll",
+                                "/academic-period/create",
+                                "/academic-period/findByQuarterAndYear",
+                                "/enrollment-window/create",
+                                "/enrollment-window/findByAcademicPeriodId"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
