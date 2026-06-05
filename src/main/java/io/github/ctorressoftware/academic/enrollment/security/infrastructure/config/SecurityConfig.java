@@ -44,12 +44,12 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
-                                "/v3/api-docs.yaml"
+                                "/v3/api-docs.yaml",
+                                "/auth/register",
+                                "/auth/login"
                         )
                         .permitAll()
                         .requestMatchers(
-                                "/auth/register",
-                                "/auth/login",
                                 "/account/create/student",
                                 "/account/create/teacher",
                                 "/subject/create",
@@ -76,7 +76,7 @@ public class SecurityConfig {
                                 "/enrollment-window/create",
                                 "/enrollment-window/findByAcademicPeriodId"
                         )
-                        .permitAll()
+                        .authenticated()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
