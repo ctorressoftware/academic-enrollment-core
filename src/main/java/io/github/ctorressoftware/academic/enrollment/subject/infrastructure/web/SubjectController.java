@@ -16,8 +16,10 @@ import io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.
 import io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.response.subject.CreateSubjectResponse;
 import io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.response.subject.GetAllSubjectsResponse;
 import io.github.ctorressoftware.academic.enrollment.subject.infrastructure.web.response.subject.GetSubjectByCodeResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -52,6 +54,8 @@ public class SubjectController {
         ));
     }
 
+    @Tag(name = "Admin", description = "Endpoints available for administrators")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/getAll")
     public ResponseEntity<ApiResponse<GetAllSubjectsResponse>> getAll(
             GetAllSubjectsRequest request) {
