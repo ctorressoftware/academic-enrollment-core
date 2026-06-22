@@ -46,37 +46,11 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/v3/api-docs.yaml",
                                 "/auth/register",
-                                "/auth/login"
+                                "/auth/login",
+                                "/student/accounts",
+                                "/teacher/accounts"
                         )
                         .permitAll()
-                        .requestMatchers(
-                                "/account/create/student",
-                                "/account/create/teacher",
-                                "/subject/create",
-                                "/subject/getAll",
-                                "/subject/get",
-                                "/enrollment/enroll",
-                                "/enrollment/getByStudentId",
-                                "/documenttype/create",
-                                "/gender/create",
-                                "/enrollment-state/create",
-                                "/enrollment-state/getAll",
-                                "/course-state/create",
-                                "/course-state/getAll",
-                                "/career/create",
-                                "/career/getAll",
-                                "/career/getByCode",
-                                "/prerequisite/create",
-                                "/prerequisite/getAllBySubjectId",
-                                "/role/create",
-                                "/role/findByCode/**",
-                                "/role/findAll",
-                                "/academic-period/create",
-                                "/academic-period/findByQuarterAndYear",
-                                "/enrollment-window/create",
-                                "/enrollment-window/findByAcademicPeriodId"
-                        )
-                        .authenticated()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
