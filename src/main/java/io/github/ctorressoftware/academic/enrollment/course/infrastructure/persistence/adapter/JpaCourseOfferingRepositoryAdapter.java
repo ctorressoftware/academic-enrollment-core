@@ -7,16 +7,25 @@ import io.github.ctorressoftware.academic.enrollment.course.infrastructure.persi
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
-public class JpaCourseOfferingRepositoryAdapter
-        implements CourseOfferingRepository {
+public class JpaCourseOfferingRepositoryAdapter implements CourseOfferingRepository {
 
     private final SpringDataCourseOfferingRepository repository;
 
     public JpaCourseOfferingRepositoryAdapter(
             SpringDataCourseOfferingRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public CourseOffering findById(UUID courseOfferingId) {
+
+        CourseOfferingEntity entity = repository.findById(courseOfferingId)
+                .orElseThrow(() -> new RuntimeException("Course Offering not found. ID = " + courseOfferingId));
+
+        return toDomain(entity);
     }
 
     @Override
