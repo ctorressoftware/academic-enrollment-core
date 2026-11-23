@@ -34,6 +34,11 @@ public class JpaEnrollmentRepositoryAdapter implements EnrollmentRepository {
                 .toList();
     }
 
+    @Override
+    public boolean existsEnrollmentScheduleConflict(UUID studentId, UUID candidateCourseOfferingId) {
+        return repository.existsEnrollmentScheduleConflict(studentId, candidateCourseOfferingId);
+    }
+
     private Enrollment toDomain(EnrollmentEntity entity) {
 
         return Enrollment.restore(
