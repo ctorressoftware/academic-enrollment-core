@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface EnrollmentRepository {
     Enrollment save(Enrollment enrollment);
     List<Enrollment> getAllByStudentId(UUID studentId);
+    boolean existsEnrollmentScheduleConflict(UUID studentId, UUID candidateCourseOfferingId);
 }
