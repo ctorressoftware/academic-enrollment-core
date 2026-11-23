@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.UUID;
 
-@Entity
-@Table(name = "course_offering", uniqueConstraints = {
+@Entity(name = "course_offering")
+@Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"group_code", "academic_period_id"})
 })
 public class CourseOfferingEntity {
